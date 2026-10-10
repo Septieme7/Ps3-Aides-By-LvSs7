@@ -43,7 +43,7 @@ Ce projet est un guide web interactif, rassemblant toutes les étapes pour prép
 
 1. Clone le dépôt :
    ```bash
-   git clone https://github.com/Septieme7/PS3-Aides-LvSs7
+   git clone https://github.com/Septieme7/Ps3-Aides-By-LvSs7.git
    ```
 
 2. Ouvre `index.html` dans un navigateur.
