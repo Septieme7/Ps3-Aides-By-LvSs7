@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ultimate Guide: Transfer Your PS3 Games with FileZilla">
+    <title>Ultimate PS3 Guide — FileZilla, webMAN MOD & Custom</title>
+    <link rel="manifest" href="../icon/site.webmanifest">
+    <!-- ===== FAVICONS & ICONS ===== -->
+    <link rel="icon" type="image/x-icon" href="../icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../icon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../icon/android-chrome-512x512.png">
+    <link rel="manifest" href="../icon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<!-- Dans assets/html/en.html (EN) -->
+	<a href="../../index.html" class="action-btn" title="Version française" aria-label="Version française" style="pointer-events:auto;">
+    <span class="action-icon">🇫🇷</span>
+	</a>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+    <div class="bg-edge bg-edge--left" aria-hidden="true"></div>
+    <div class="bg-edge bg-edge--right" aria-hidden="true"></div>
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <span class="theme-icon theme-icon--dark">🌙</span>
+        <span class="theme-icon theme-icon--light">☀️</span>
+    </button>
+
+    <div class="floating-actions">
+        <button id="tocToggle" class="action-btn" aria-label="Show/Hide table of contents" title="Contents">
+            <span class="action-icon">📑</span>
+        </button>
+        <button id="searchToggle" class="action-btn" aria-label="Search" title="Search">
+            <span class="action-icon">🔍</span>
+        </button>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">📘 Reference Guide</span>
+            <h1 class="hero-title">Ultimate Guide: Transfer Your PS3 Games</h1>
+            <p class="hero-subtitle">
+                FileZilla · webMAN MOD · NPS Browser · Rusty-PSN · PySN · PS Multi Tools · Custom Firmware Tools
+            </p>
+            <div class="hero-tags">
+                <span>PS3</span><span>PS2</span><span>PS1</span><span>PSP</span><span>PSN</span><span>CFW</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro" aria-label="Introduction">
+        <div class="intro__inner">
+            <p class="intro__lead">
+                Welcome to this reference guide to transfer all your games (PS3, PS2, PS1, PSP, PSN) and licenses from your PC to your PS3 via FTP with <strong>FileZilla</strong>, and to configure <strong>webMAN MOD</strong> optimally.
+            </p>
+            <h3 class="intro__title">This guide shows you how to:</h3>
+            <ul class="intro__list">
+                <li>Transfer your PS3 (folder/JB and ISO), PS2, PS1, PSP, and PSN games.</li>
+                <li>Manage licenses (RAP, RIF, EDAT) and activate them, with a critical reminder about <code>exdata</code>.</li>
+                <li>Configure webMAN MOD: temperature, fan, syscalls, revisions <code>q</code>, <code>s</code>, and <code>t</code>.</li>
+                <li>Customize icons, videos, and wallpapers (XMB, webMAN MOD, multiMAN).</li>
+                <li>Optimize transfer speed (Full-Duplex 1000BASE-T).</li>
+                <li>Manage FTP passwords (root) for webMAN MOD and multiMAN.</li>
+                <li>Use <strong>NPS Browser</strong> to download PS3, PS2, PS1, and PSP games.</li>
+                <li>Fix the PS1 game error <code>80028F10</code>.</li>
+                <li>Download PS3 updates with <strong>Rusty-PSN</strong> and <strong>PySN</strong> (comparison included).</li>
+                <li>Use <strong>PS Multi Tools v16.2</strong> from A to Z (ISO, PKG, PARAM.SFO, webMAN MOD Features).</li>
+                <li>Master the <strong>Custom Firmware Tools (Cobra 8.5)</strong> menu: power, file manager, overclocking, fan, QA Flags, Cobra, PSN, dump, CEX/DEX, Rebug, OtherOS, service, LED, updates.</li>
+                <li>Understand and apply <strong>RSX overclocking</strong> (<code>overclock.txt</code> file, Core/Memory frequency steps).</li>
+                <li>Access <strong>useful resources</strong> (DKEY, IRD, official updates) and the <strong>required runtimes</strong> (.NET 9.0, .NET 6.0, VB5).</li>
+                <li>And much more: quick troubleshooting, PS2/PS1/PSP specific cases, PS3HEN, etc.</li>
+            </ul>
+            <blockquote class="callout callout--info">
+                💡 <strong>Tip</strong>: This guide is designed to be consulted <strong>section by section</strong>. Use the table of contents on the left to navigate quickly to the topic of interest, or use search 🔍 to find a specific keyword.
+            </blockquote>
+        </div>
+    </section>
+
+    <div class="layout" id="layout">
+
+        <div id="tocOverlay" class="toc-overlay" aria-hidden="true"></div>
+
+        <aside id="tocSidebar" class="toc-sidebar" aria-label="Sidebar table of contents">
+            <div class="toc-sidebar__header">
+                <span class="toc-sidebar__title">📑 Contents</span>
+                <button id="tocClose" class="toc-sidebar__close" aria-label="Close TOC">✕</button>
+            </div>
+            <nav class="toc-sidebar__nav">
+                <ul class="toc-sidebar__list">
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🛠️ Prerequisites</span>
+                        <ul><li><a href="#prerequis" class="toc-link">Before You Start</a></li></ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">⚙️ FTP Setup</span>
+                        <ul>
+                            <li><a href="#etape1" class="toc-link">Step 1: FileZilla</a></li>
+                            <li><a href="#etape2" class="toc-link">Step 2: Destination Folders</a></li>
+                            <li><a href="#etape5" class="toc-link">Step 5: Start the Transfer</a></li>
+                            <li><a href="#etape6" class="toc-link">Step 6: Finalization</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🕹️ Retro Consoles</span>
+                        <ul>
+                            <li><a href="#etape3" class="toc-link">Step 3: PS2 / PS1 / PSP</a></li>
+                            <li><a href="#etape14" class="toc-link">Step 14: Error 80028F10</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🔑 Licenses</span>
+                        <ul>
+                            <li><a href="#etape4" class="toc-link">Step 4: RAP / RIF / EDAT</a></li>
+                            <li><a href="#rappel-exdata" class="toc-link toc-link--danger">⛔ CRITICAL REMINDER</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🎨 Customization</span>
+                        <ul>
+                            <li><a href="#etape7" class="toc-link">Step 7: Icons & Videos</a></li>
+                            <li><a href="#etape8" class="toc-link">Step 8: Fan Settings</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🔧 System & Network</span>
+                        <ul>
+                            <li><a href="#etape9" class="toc-link">Step 9: Syscalls</a></li>
+                            <li><a href="#etape10" class="toc-link">Step 10: IP Addresses</a></li>
+                            <li><a href="#etape11" class="toc-link">Step 11: FTP Passwords</a></li>
+                            <li><a href="#etape12" class="toc-link">Step 12: q/s/t Revisions</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">📥 PC Tools</span>
+                        <ul>
+                            <li><a href="#etape13" class="toc-link">Step 13: NPS Browser</a></li>
+                            <li><a href="#psmultitools" class="toc-link">PS Multi Tools v16.2</a></li>
+                            <li><a href="#etape15" class="toc-link">Step 15: Rusty-PSN</a></li>
+                            <li><a href="#etape16" class="toc-link">Step 16: PySN</a></li>
+                            <li><a href="#comparatif" class="toc-link">Rusty-PSN vs PySN</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">⚙️ Custom Firmware</span>
+                        <ul>
+                            <li><a href="#cft" class="toc-link">Custom Firmware Tools</a></li>
+                            <li><a href="#cft-power" class="toc-link">⏻ Power Options</a></li>
+                            <li><a href="#cft-filemanager" class="toc-link">📁 File Manager</a></li>
+                            <li><a href="#cft-overclock" class="toc-link">🚀 Overclock Tools</a></li>
+                            <li><a href="#cft-basic" class="toc-link">🛠️ Basic Tools</a></li>
+                            <li><a href="#cft-fan" class="toc-link">🌡️ FAN Tools</a></li>
+                            <li><a href="#cft-qa" class="toc-link">🛡️ QA Tools</a></li>
+                            <li><a href="#cft-cobra" class="toc-link">🐍 Cobra Tools</a></li>
+                            <li><a href="#cft-psn" class="toc-link">🌐 PSN Tools</a></li>
+                            <li><a href="#cft-dump" class="toc-link">📤 Dump Tools</a></li>
+                            <li><a href="#cft-cexdex" class="toc-link">🔄 CEX2DEX Tools</a></li>
+                            <li><a href="#cft-rebug" class="toc-link">🧰 Rebug Tools</a></li>
+                            <li><a href="#cft-otheros" class="toc-link">💻 OtherOS Tools</a></li>
+                            <li><a href="#cft-service" class="toc-link">🛠️ Service Tools</a></li>
+                            <li><a href="#cft-led" class="toc-link">💡 Led Tools</a></li>
+                            <li><a href="#cft-updates" class="toc-link">⬆️ Updates</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🚀 Overclocking</span>
+                        <ul>
+                            <li><a href="#overclock" class="toc-link">RSX Overclocking</a></li>
+                            <li><a href="#pas-frequence" class="toc-link">Frequency Steps</a></li>
+                        </ul>
+                    </li>
+                    <li class="toc-chapter">
+                        <span class="toc-chapter__label">🚑 Help & Appendices</span>
+                        <ul>
+                            <li><a href="#depannage" class="toc-link">Quick Troubleshooting</a></li>
+                            <li><a href="#ressources" class="toc-link">Useful Resources</a></li>
+                            <li><a href="#runtimes" class="toc-link">Runtimes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <section id="prerequis" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 1</span>
+                    <h2>🛠️ Prerequisites Before You Start</h2>
+                </div>
+                <ul class="check-list">
+                    <li>✅ <strong>FileZilla</strong> installed on your PC.</li>
+                    <li>✅ <strong>FTP server active</strong> on the PS3 (webMAN MOD or multiMAN running).</li>
+                    <li>✅ <strong>PS3 IP address</strong> (e.g.: <code>192.168.1.70</code>).</li>
+                    <li>✅ <strong>Ethernet cable</strong> (recommended for speed and stability).</li>
+                </ul>
+            </section>
+
+            <section id="etape1" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 2</span>
+                    <h2>⚙️ Step 1: Configuring FileZilla (Site Manager)</h2>
+                </div>
+                <p>To avoid connection errors or file corruption, it is crucial to configure FileZilla correctly. Go to <strong>File &gt; Site Manager</strong> and create a new site with these settings:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Tab</th><th>Setting</th><th>Recommended Value</th></tr></thead>
+                        <tbody>
+                            <tr><td rowspan="4"><strong>General</strong></td><td>Protocol</td><td><code>FTP - File Transfer Protocol</code></td></tr>
+                            <tr><td>Host</td><td><code>[Your PS3 IP address]</code> (e.g.: 192.168.1.70)</td></tr>
+                            <tr><td>Encryption</td><td><code>Use plain FTP (insecure)</code></td></tr>
+                            <tr><td>Logon Type</td><td><code>Anonymous</code> (or <code>Normal</code> with <code>root</code> / blank)</td></tr>
+                            <tr><td><strong>Charset</strong></td><td>Encoding</td><td><strong>Force UTF-8</strong> (Mandatory!)</td></tr>
+                            <tr><td><strong>Transfer</strong></td><td>Transfer Mode</td><td>Default</td></tr>
+                            <tr><td><strong>Transfer Settings</strong></td><td>Server Type</td><td><code>Unix</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Important reminder</strong>: In FileZilla's main menu, go to <strong>Transfer &gt; Transfer Type</strong> and check <strong>"Binary"</strong>. An ASCII transfer will corrupt your games!
+                </blockquote>
+            </section>
+
+            <section id="etape2" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 3</span>
+                    <h2>📂 Step 2: Where to Place Your Games (Destination Folders)</h2>
+                </div>
+                <p>Once connected to the PS3 via FileZilla, navigate in the right pane to the <strong><code>dev_hdd0</code></strong> folder. The destination folder changes depending on the <strong>type</strong> and <strong>format</strong> of your game.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Game Type</th><th>Format</th><th>Destination Folder on PS3</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>PS3 Game (Folder/JB)</strong></td><td>Folder containing <code>PS3_GAME</code> and <code>PS3_DISC.SFB</code></td><td>📁 <code>/dev_hdd0/GAMES/</code></td></tr>
+                            <tr><td><strong>PS3 Game (ISO)</strong></td><td><code>.iso</code> file</td><td>📁 <code>/dev_hdd0/PS3ISO/</code></td></tr>
+                            <tr><td><strong>PS2 Game</strong></td><td><code>.iso</code> file</td><td>📁 <code>/dev_hdd0/PS2ISO/</code></td></tr>
+                            <tr><td><strong>PS1 Game</strong></td><td><code>.iso</code>, <code>.bin/.cue</code>, or <code>.img/.ccd</code> file</td><td>📁 <code>/dev_hdd0/PSXISO/</code></td></tr>
+                            <tr><td><strong>PSN Game</strong></td><td><code>.pkg</code> file</td><td>📁 <code>/dev_hdd0/packages/</code></td></tr>
+                            <tr><td><strong>Licenses (RAP)</strong></td><td><code>.rap</code> file</td><td>📁 <code>/dev_hdd0/exdata/</code></td></tr>
+                            <tr><td><strong>Licenses (RIF)</strong></td><td><code>.rif</code> file</td><td>📁 <code>/dev_hdd0/home/[ID]/exdata/</code></td></tr>
+                            <tr><td><strong>Licenses (EDAT)</strong></td><td><code>.edat</code> file</td><td>📁 <code>/dev_hdd0/home/[ID]/exdata/</code> (or game folder)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Tip</strong>: If a folder (like <code>PS3ISO</code> or <code>PS2ISO</code>) doesn't exist, you can create it manually without risk by right-clicking &gt; "Create directory".
+                </blockquote>
+            </section>
+
+            <section id="etape3" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 4</span>
+                    <h2>🕹️ Step 3: Special Cases for PS2 and PS1 Games</h2>
+                </div>
+                <p>To make your PS2 and PS1 games work, simply copying the game files is not enough. Two situations must be distinguished: one where you use <strong>CFW Evilnat</strong> (as is your case) and one where you use <strong>PS3HEN</strong>.</p>
+
+                <h3>🎮 PS2 Games (via CFW Evilnat)</h3>
+                <p>With a CFW, the method is <strong>more flexible</strong> than with HEN. You <strong>don't need to encrypt</strong> your ISOs to <code>.BIN.ENC</code>.</p>
+                <ul>
+                    <li><strong>Required format</strong>: You can use your <strong><code>.ISO</code></strong> files directly (unencrypted).</li>
+                    <li><strong>Location</strong>: Place your <code>.ISO</code> files in the <strong><code>/dev_hdd0/PS2ISO/</code></strong> folder on the internal hard drive. ISOs stored on an external USB device (FAT32) will be automatically copied to the PS3's hard drive at launch.</li>
+                    <li><strong>Configuration file (<code>.CONFIG</code>)</strong>: Although often optional, a <code>.CONFIG</code> file may be needed for <strong>certain specific games</strong> to improve compatibility or fix graphical bugs. webMAN MOD has an <strong>"Auto CONFIG"</strong> option that can automatically copy the configuration file found in the <code>PS2ISO</code> folder if the ISO doesn't have one.</li>
+                </ul>
+
+                <h4>📝 PS2 Configuration File (<code>.CONFIG</code>): Clear Explanation</h4>
+                <p>Some PS2 games need a special configuration file to work better on PS3. This file is <strong>separate from the ISO</strong> and has a very precise name.</p>
+                <p><strong>Concrete example:</strong></p>
+                <pre><code>Example --> /dev_hdd0/PS2ISO/Grand Theft Auto - San Andreas v2.01.iso
+        --> /dev_hdd0/PS2ISO/Grand Theft Auto - San Andreas v2.01.iso.CONFIG</code></pre>
+                <ul>
+                    <li>The first file is <strong>the game ISO</strong>.</li>
+                    <li>The second is <strong>the associated configuration file</strong>.</li>
+                </ul>
+                <p><strong>The ISO is not being renamed.</strong> The ISO keeps its normal name. The <code>.CONFIG</code> file is a small text file created <strong>next to</strong> the ISO, in the same folder (<code>/dev_hdd0/PS2ISO/</code>).</p>
+                <p><strong>Naming rule</strong>: the <code>.CONFIG</code> file must be named <strong>exactly like the ISO, including the <code>.iso</code> extension</strong>, then you add <code>.CONFIG</code> at the end.</p>
+                <ul>
+                    <li><code>MyGame.iso</code> → <code>MyGame.iso.CONFIG</code></li>
+                    <li><code>Gran Turismo 4.iso</code> → <code>Gran Turismo 4.iso.CONFIG</code></li>
+                </ul>
+                <p><strong>What is it for?</strong> It allows webMAN MOD / the PS2 emulator to apply specific settings for this game:</p>
+                <ul>
+                    <li>emulator choice (<code>ps2_emu</code>, <code>ps2_netemu</code>, <code>ps2_gxemu</code>…)</li>
+                    <li>compatibility fixes</li>
+                    <li>memory management</li>
+                    <li>fixing graphical bugs or slowdowns</li>
+                    <li>region forcing, etc.</li>
+                </ul>
+                <p><strong>What to do?</strong></p>
+                <ul>
+                    <li>Keep the ISO and the <code>.CONFIG</code> <strong>side by side</strong> in <code>/dev_hdd0/PS2ISO/</code>.</li>
+                    <li><strong>Do not rename the ISO</strong>, otherwise the <code>.CONFIG</code> will no longer be associated and the game will lose its settings.</li>
+                    <li>If the game works fine, <strong>don't touch anything</strong>.</li>
+                    <li>If you delete the <code>.CONFIG</code>, the game may still start, but it will lose its specific settings and may show bugs.</li>
+                </ul>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: webMAN MOD has an <strong>Auto CONFIG</strong> option that can automatically copy a <code>.CONFIG</code> found in <code>PS2ISO</code> if the ISO doesn't have one. Here, the file is already present: this is normal and recommended.
+                </blockquote>
+
+                <h3>🕹️ PS1 Games (via CFW)</h3>
+                <p>For PS1 games, the process is fairly straightforward.</p>
+                <ul>
+                    <li><strong>Supported formats</strong>: <code>.ISO</code>, <code>.BIN</code>/<code>.CUE</code>, and <code>.IMG</code>/<code>.CCD</code> formats are supported. The <code>.cue</code> (or <code>.ccd</code>) file must be <strong>next to</strong> the <code>.bin</code> (or <code>.img</code>) and have <strong>the same name</strong>.</li>
+                    <li><strong>Location</strong>: Place your game files in the <strong><code>/dev_hdd0/PSXISO/</code></strong> folder.</li>
+                    <li><strong>Emulator</strong>:
+                        <ul>
+                            <li>By default, webMAN MOD uses the <code>ps1_emu.self</code> emulator. You can switch to <code>ps1_netemu.self</code> via an option in <code>/setup.ps3</code> for better compatibility with certain games.</li>
+                        </ul>
+                    </li>
+                    <li><strong>External PS1 BIOS (optional)</strong>:
+                        <ul>
+                            <li>The PS3's internal BIOS is used by default.</li>
+                            <li>To use an <strong>external PS1 BIOS</strong>, place a file named <strong><code>ps1_bios.bin</code></strong> in the <strong><code>/dev_hdd0/tmp/wm_res/</code></strong> folder. This file must be renamed from an official PS1 BIOS (such as <code>SCPH1001.bin</code>).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>🎮 PSP Games (via CFW)</h3>
+                <p>Unlike PS1 and PS2 games, PSP games require the installation of <strong>two mandatory launchers</strong> in addition to the game files.</p>
+                <ul>
+                    <li><strong>Required format</strong>: Only the <strong><code>.iso</code></strong> format. Compressed formats <code>.cso</code> and <code>.zso</code> are <strong>not supported</strong>.</li>
+                    <li><strong>Location</strong>: Place your <code>.iso</code> files in the <strong><code>/dev_hdd0/PSPISO/</code></strong> folder (or on a USB device in a <code>PSPISO</code> folder).</li>
+                    <li><strong>Mandatory launchers</strong>: The following two launchers must be installed <strong>both of them</strong>:
+                        <ul>
+                            <li><strong>PSP Minis Launcher</strong>: For PSP games in "Mini" format.</li>
+                            <li><strong>PSP Remasters Launcher</strong>: For PSP games in "Remaster" format (classic UMDs).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Requirement</strong>: <strong>Cobra</strong> mode must be enabled in your CFW (enabled by default on Evilnat 4.93).</li>
+                    <li><strong>Compatibility</strong>: About <strong>60% of the PSP catalog</strong> is playable. Check the compatibility list before transferring a game.</li>
+                </ul>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: After adding new PSP ISOs, remember to <strong>refresh the game list</strong> in webMAN MOD so they appear in the "PlayStation®Portable" submenu of the XMB.
+                </blockquote>
+
+                <h3>⚠️ Special case: PS3HEN</h3>
+                <p>If you were to use <strong>PS3HEN</strong> instead of CFW, the procedure for PS2 games would be <strong>different and more restrictive</strong>:</p>
+                <ul>
+                    <li>You would need to <strong>encrypt your PS2 ISOs to <code>.BIN.ENC</code> format</strong>.</li>
+                    <li>Games would need to be launched via the <strong>PS2 Classics Launcher</strong>.</li>
+                </ul>
+                <blockquote class="callout callout--info">
+                    ✅ <strong>Good news</strong>: This encryption step is <strong>not necessary</strong> with your CFW Evilnat.
+                </blockquote>
+            </section>
+
+            <section id="etape4" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 5</span>
+                    <h2>🔑 Step 4: License Files (RAP, RIF, EDAT)</h2>
+                </div>
+                <p>The <strong>RAP</strong>, <strong>RIF</strong>, and <strong>EDAT</strong> files are licenses required to activate games or DLCs downloaded in PKG format. Without them, the PS3 refuses to launch the content.</p>
+
+                <h3>📜 The RAP / RIF Duo</h3>
+                <ul>
+                    <li><strong>The <code>.rap</code> file</strong> is the <strong>universal license key</strong>. It is tied to the content, but not to your console.</li>
+                    <li><strong>The <code>.rif</code> file</strong> is the <strong>personalized license</strong>. It is generated by your PS3 from the <code>.rap</code> file and is then <strong>linked to your account and your console</strong> (via your <code>act.dat</code>). It is this <code>.rif</code> file that the PS3 uses to unlock and launch the game.</li>
+                </ul>
+
+                <h3>🔓 The EDAT File</h3>
+                <ul>
+                    <li><strong>The <code>.edat</code> file</strong> (Encrypted Data) is an <strong>unlock license</strong> used to activate the full content of games or DLCs that were initially trial versions (the "C00" games). It contains the activation information needed to turn a demo into a full game, once the <code>.rap</code> file is installed.</li>
+                </ul>
+
+                <h3>📂 Where to Place Them?</h3>
+                <ul>
+                    <li><strong><code>.rap</code> files</strong>: Place them directly in <strong><code>/dev_hdd0/exdata/</code></strong>.</li>
+                    <li><strong><code>.rif</code> files</strong>: Place them in <strong><code>/dev_hdd0/home/[YOUR_USER_ID]/exdata/</code></strong>. The user ID is an 8-digit number (e.g.: <code>00000001</code>).</li>
+                    <li><strong><code>.edat</code> files</strong>:
+                        <ul>
+                            <li><strong>Most common case</strong>: Place them in <strong><code>/dev_hdd0/home/[YOUR_USER_ID]/exdata/</code></strong>, at the same location as the <code>.rif</code> files.</li>
+                            <li><strong>Specific case (some DLCs)</strong>: Place them in the game folder, alongside the <code>EBOOT.BIN</code> file:
+                                <ul>
+                                    <li><code>/dev_hdd0/game/[GAME_ID]/USRDIR/</code></li>
+                                    <li>or <code>/dev_hdd0/GAMES/[GAME_ID]/PS3_GAME/USRDIR/</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <blockquote class="callout callout--danger">
+                    ⚠️ <strong>Important</strong>: <strong>Never</strong> mix <code>.rif</code> and <code>.edat</code> files with <code>.rap</code> files in <code>/dev_hdd0/exdata/</code>. They will be ignored. Each file type has its own dedicated folder.
+                </blockquote>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: Make sure <strong>all extensions are lowercase</strong> (<code>.rap</code> and not <code>.RAP</code>, <code>.rif</code> and not <code>.RIF</code>, etc.).
+                </blockquote>
+
+                <h3>⚙️ Installation via PKG</h3>
+                <p>If you have a <code>.pkg</code> file containing the licenses (RAP, RIF, and/or EDAT), the simplest method is to:</p>
+                <ol>
+                    <li>Copy the PKG to <code>/dev_hdd0/packages/</code>.</li>
+                    <li>Install it via the <strong>Package Manager</strong> in the XMB.</li>
+                    <li>Let <strong>webMAN MOD</strong> automatically place the files in the correct locations.</li>
+                </ol>
+            </section>
+
+            <section id="rappel-exdata" class="section section--alert">
+                <div class="section-header">
+                    <span class="section-badge section-badge--danger">⚠️ Chapter 6 — CRITICAL</span>
+                    <h2>⛔🚨⚠️ CRITICAL REMINDER — <code>.rap</code> LICENSES AND <code>exdata</code> ⚠️🚨⛔</h2>
+                </div>
+
+                <blockquote class="callout callout--danger big-warning">
+                    <h3>🛑 NEVER COPY ALL YOUR <code>.rap</code> FILES INTO <code>/dev_hdd0/exdata/</code> 🛑</h3>
+                    <p><strong>🔥 THIS IS NOT AN OPTION. IT IS AN ABSOLUTE RULE. 🔥</strong></p>
+                </blockquote>
+
+                <h3>❌ WHAT TO NEVER DO</h3>
+                <ul class="danger-list">
+                    <li>❌ <strong>Never</strong> dump a complete collection of <code>.rap</code> files (e.g.: 28,768 files) into <code>/dev_hdd0/exdata/</code>.</li>
+                    <li>❌ <strong>Do not</strong> copy the licenses of games you have <strong>not installed</strong>.</li>
+                    <li>❌ <strong>Never</strong> mix <code>.rap</code>, <code>.rif</code>, and <code>.edat</code> in the same folder.</li>
+                    <li>❌ <strong>Do not</strong> leave useless files lying around in <code>exdata</code>.</li>
+                </ul>
+
+                <h3>💥 WHY? WHAT HAPPENS IF YOU DO IT</h3>
+                <ul>
+                    <li>🐌 The PS3 becomes <strong>extremely slow</strong> as soon as it lists this folder.</li>
+                    <li>🧊 The <strong>XMB freezes</strong> or takes several minutes to respond.</li>
+                    <li>💣 <strong>Cascading bugs</strong> appear: black screen, games no longer launch, license errors.</li>
+                    <li>🔄 <strong>webMAN MOD</strong> and <strong>multiMAN</strong> can crash while scanning the folder.</li>
+                    <li>🚫 The console may <strong>refuse to boot</strong> properly.</li>
+                </ul>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <code>/dev_hdd0/exdata/</code> is <strong>NOT</strong> a license library. It is a working folder that must stay <strong>light, clean, and organized</strong>.
+                </blockquote>
+
+                <h3>✅ THE RIGHT METHOD — TO BE APPLIED SYSTEMATICALLY</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Rule</th><th>What to Do</th></tr></thead>
+                        <tbody>
+                            <tr><td>🎯 <strong>Only installed games</strong></td><td>Only copy the <code>.rap</code> files of games/DLCs <strong>actually installed</strong> on your PS3.</td></tr>
+                            <tr><td>🧹 <strong>A clean folder</strong></td><td><code>/dev_hdd0/exdata/</code> must contain <strong>only</strong> active licenses.</td></tr>
+                            <tr><td>📂 <strong>One folder per type</strong></td><td><code>.rap</code> → <code>/dev_hdd0/exdata/</code> • <code>.rif</code> → <code>/dev_hdd0/home/[ID]/exdata/</code> • <code>.edat</code> → <code>/dev_hdd0/home/[ID]/exdata/</code> (or <code>USRDIR</code>).</td></tr>
+                            <tr><td>🔤 <strong>Lowercase extensions</strong></td><td>Always <code>.rap</code>, <code>.rif</code>, <code>.edat</code> — never uppercase.</td></tr>
+                            <tr><td>🧪 <strong>Test after each addition</strong></td><td>Install a game, add its license, test it, then move to the next.</td></tr>
+                            <tr><td>🗑️ <strong>Regular cleanup</strong></td><td>Delete the licenses of games you have uninstalled.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🧠 GOLDEN RULE TO REMEMBER</h3>
+                <blockquote class="callout callout--warning big-warning">
+                    <h3>🥇 "ONE LICENSE = ONE INSTALLED GAME" 🥇</h3>
+                    <p>If the game is not installed on the PS3, <strong>its license has no business being in <code>exdata</code></strong>.</p>
+                    <p>No exceptions. No "just in case". No "I'll put them all in to be safe".</p>
+                    <p><strong>That's how you break a PS3.</strong></p>
+                </blockquote>
+            </section>
+
+            <section id="etape5" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 7</span>
+                    <h2>🚀 Step 5: Start the Transfer</h2>
+                </div>
+                <ol>
+                    <li><strong>Connection</strong>: Click "Connect" in FileZilla.</li>
+                    <li><strong>Navigation</strong>: In the right pane (PS3), open the folder corresponding to your game (e.g.: <code>dev_hdd0/GAMES</code>).</li>
+                    <li><strong>Drag and Drop</strong>: From the left pane (your PC), drag the folder or ISO file to the right pane.</li>
+                    <li><strong>Patience</strong>: Transfer time depends on the game size and your connection (direct Ethernet = 20-30 MB/s).</li>
+                </ol>
+
+                <h3>🔍 FileZilla Tip: Filter by File Type</h3>
+                <p>To only send <code>.rap</code> files (or any other type) and avoid errors:</p>
+                <ol>
+                    <li>Menu <strong>View</strong> &gt; <strong>Filename filters…</strong></li>
+                    <li>Click <strong>Add filter</strong> and type <code>*.rap</code> in the field.</li>
+                    <li>Confirm. FileZilla will then only show the matching files.</li>
+                </ol>
+
+                <h3>⚡ Optimization: Force Full-Duplex 1000BASE-T on PS3</h3>
+                <p>To save time during FTP transfers, it is essential to force the PS3 to negotiate a <strong>Gigabit Ethernet (1000BASE-T) Full-Duplex</strong> connection. By default, the PS3 can sometimes settle for 100 Mbit/s, which divides the speed by 10.</p>
+
+                <h4>🛠️ Configuration on PS3</h4>
+                <ol>
+                    <li>On the XMB, go to <strong>Settings</strong> &gt; <strong>Network Settings</strong> &gt; <strong>Internet Connection Settings</strong>.</li>
+                    <li>Choose <strong>Custom</strong>.</li>
+                    <li>Select <strong>Wired Connection</strong>.</li>
+                    <li>For the <strong>Speed and Duplex</strong> option, choose <strong>1000BASE-T Full-Duplex</strong>.
+                        <ul><li>If this option is unavailable or fails, try <strong>Auto-Detect</strong>.</li></ul>
+                    </li>
+                    <li>For the rest (IP Address, DHCP, DNS, MTU), leave on <strong>Automatic</strong> or <strong>Do Not Set</strong> if you have no specific configuration.</li>
+                    <li>Save and test the connection.</li>
+                </ol>
+
+                <h4>📡 PC and Network Side</h4>
+                <ul>
+                    <li><strong>Cable</strong>: Use a <strong>Cat5e or Cat6</strong> cable (Cat5 does not support Gigabit).</li>
+                    <li><strong>PC Network Card</strong>: Your network card must support Gigabit and be configured for <strong>auto-negotiation</strong> or <strong>1000BASE-T Full-Duplex</strong>.</li>
+                    <li><strong>Switch/Router</strong>: If you go through a router, it must be Gigabit. In a direct PC-PS3 connection, no switch is needed.</li>
+                </ul>
+
+                <h4>⚠️ Limits to Be Aware Of</h4>
+                <ul>
+                    <li>Even in Gigabit, the maximum throughput to the PS3's internal hard drive is limited to about <strong>19-21 MB/s</strong> by the SATA 1.5 Gbps interface.</li>
+                    <li>An internal SSD can slightly improve access times, but the SATA limit remains the same.</li>
+                    <li>For FileZilla, you can also switch to <strong>Active mode</strong> (Edit &gt; Settings &gt; FTP &gt; Transfer Mode) if passive mode causes issues.</li>
+                </ul>
+            </section>
+
+            <section id="etape6" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 8</span>
+                    <h2>✅ Step 6: Finalization on PS3</h2>
+                </div>
+                <p>Once the transfer is 100% complete:</p>
+                <ul>
+                    <li>Return to your PS3's XMB.</li>
+                    <li>Launch <strong>webMAN MOD</strong> and do a <strong>rescan</strong> (or refresh the game list) so the new titles appear.</li>
+                    <li>If you use <strong>multiMAN</strong>, simply refresh the game list in the corresponding tab.</li>
+                </ul>
+            </section>
+
+            <section id="etape7" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 9</span>
+                    <h2>🎨 Step 7: Customizing Icons and Videos</h2>
+                </div>
+                <p>You can customize the appearance of your games and applications in the XMB or in homebrew like webMAN MOD and multiMAN.</p>
+
+                <h3>📝 Formats and Naming Conventions</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>File Type</th><th>Role</th><th>Format & Dimensions</th><th>Where to Place It</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>ICON0.PNG</strong></td><td>Game icon in the XMB.</td><td>PNG, <strong>320x176 px</strong>.</td><td>At the root of the game folder (e.g.: <code>/dev_hdd0/GAMES/[GAME_ID]/</code>).</td></tr>
+                            <tr><td><strong>ICON1.PAM</strong></td><td>Animated video replacing the icon after a few seconds.</td><td>PAM (Sony format), <strong>320x176 px</strong>.</td><td>Same location as <code>ICON0.PNG</code>.</td></tr>
+                            <tr><td><strong>PIC0.PNG</strong></td><td>Background image (overlay) for 16:9 screens.</td><td>PNG, <strong>1000x560 px</strong>.</td><td>Same location as <code>ICON0.PNG</code>.</td></tr>
+                            <tr><td><strong>PIC1.PNG</strong></td><td>Background image for 4:3 screens.</td><td>PNG, <strong>310x250 px</strong>.</td><td>Same location as <code>ICON0.PNG</code>.</td></tr>
+                            <tr><td><strong>SND0.AT3</strong></td><td>Sound played when the icon is selected.</td><td>ATRAC3 (<code>.at3</code>).</td><td>Same location as <code>ICON0.PNG</code>.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: For games in <strong>ISO</strong> format, webMAN MOD looks for a cover image (<code>.jpg</code> or <code>.png</code>) named <strong>exactly like the ISO file</strong> (e.g.: <code>BLES01234.jpg</code>) in the <code>PS3ISO</code>, <code>PS2ISO</code>, <code>PSXISO</code>, or <code>PSPISO</code> folder.
+                </blockquote>
+
+                <h3>📂 Where to Place Your Files for Each Content Type</h3>
+
+                <h4>1. PS3 Games (Folder / JB)</h4>
+                <p>The files <code>ICON0.PNG</code>, <code>ICON1.PAM</code>, <code>PIC0.PNG</code>, <code>PIC1.PNG</code>, and <code>SND0.AT3</code> must be placed <strong>at the root of the game folder</strong>, that is, at the same level as the <code>PS3_GAME</code> folder.</p>
+                <ul><li><strong>Path</strong>: <code>/dev_hdd0/GAMES/[GAME_ID]/</code></li></ul>
+
+                <h4>2. PS3, PS2, PSX, PSP Games (ISO)</h4>
+                <p>For games in ISO format, customization is done via a cover image (<code>.jpg</code> or <code>.png</code>) that has <strong>exactly the same name as the ISO file</strong> (without the extension). This image will be used as <code>ICON0.PNG</code> by webMAN MOD.</p>
+                <ul>
+                    <li><strong>Example</strong>: For a game <code>MyGame.iso</code> in <code>/dev_hdd0/PS3ISO/</code>, the icon must be <code>/dev_hdd0/PS3ISO/MyGame.jpg</code> (or <code>.png</code>).</li>
+                    <li>This method also works for <strong>PS2</strong>, <strong>PSX</strong>, and <strong>PSP</strong> games in their respective folders (<code>PS2ISO</code>, <code>PSXISO</code>, <code>PSPISO</code>).</li>
+                </ul>
+
+                <h4>3. Applications (webMAN MOD, multiMAN, Apollo, PSP Launchers, etc.)</h4>
+                <p>Each application has its own folder in <code>/dev_hdd0/game/</code>. To change its icon, you must replace the <code>ICON0.PNG</code> file at the root of its installation folder.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Application</th><th>Installation Folder Path</th><th>File to Replace</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>webMAN MOD</strong></td><td><code>/dev_hdd0/game/XMBMANPLS/</code></td><td><code>ICON0.PNG</code></td></tr>
+                            <tr><td><strong>multiMAN</strong></td><td><code>/dev_hdd0/game/BLES80608/</code></td><td><code>ICON0.PNG</code></td></tr>
+                            <tr><td><strong>Apollo Save Tool</strong></td><td><code>/dev_hdd0/game/APOLLO000/</code> (or similar)</td><td><code>ICON0.PNG</code></td></tr>
+                            <tr><td><strong>PSP Minis Launcher</strong></td><td><code>/dev_hdd0/game/PSPM66820/</code></td><td><code>ICON0.PNG</code></td></tr>
+                            <tr><td><strong>PSP Remasters Launcher</strong></td><td><code>/dev_hdd0/game/PSPC66820/</code></td><td><code>ICON0.PNG</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: After modifying an icon, it may be necessary to <strong>restart the PS3</strong> or <strong>refresh the XMB</strong> for the change to be visible.
+                </blockquote>
+
+                <h3>🖼️ Managing Folder and Disc Icons in webMAN MOD</h3>
+                <p>webMAN MOD uses specific icons for its folders (PS3, PS2, PS1, etc.). You can replace them by placing your own <code>.png</code> or <code>.jpg</code> files in the following folder:</p>
+                <ul>
+                    <li><strong>Path</strong>: <code>/dev_hdd0/tmp/wm_icons/</code></li>
+                    <li>The files must have the exact name of the icon they replace (e.g.: <code>folder_ps3.png</code>).</li>
+                </ul>
+
+                <h3>🎬 Managing Icons and Backgrounds in multiMAN</h3>
+                <p>In multiMAN, the icons and backgrounds of the game list can be modified by replacing the files in specific folders of the application's cache.</p>
+                <ul>
+                    <li><strong>Game icons</strong>: <code>/dev_hdd0/game/BLES80608/USRDIR/cache/net/</code></li>
+                    <li><strong>Backgrounds</strong>: <code>/dev_hdd0/game/BLES80608/USRDIR/cache/</code></li>
+                </ul>
+
+                <h3>🖼️ Adding Custom Wallpapers via USB (Simple Method)</h3>
+                <p>To quickly add personal images as a wallpaper on your PS3, the USB method is the most direct and works perfectly, even without FTP. It is ideal for one-time use.</p>
+                <ol>
+                    <li><strong>Prepare a USB drive</strong>: format it in <strong>FAT32</strong>.</li>
+                    <li><strong>Create a <code>PICTURE</code> folder</strong> at the root of the drive (in uppercase).</li>
+                    <li><strong>Copy your images</strong> into this folder. The PS3 officially supports the following formats: <strong>JPEG</strong> (DCF 2.0/Exif 2.21), <strong>PNG</strong>, <strong>GIF</strong>, <strong>TIFF</strong>, <strong>BMP</strong>, and <strong>MPO</strong> (3D photos in MP format). For optimal rendering on an HD screen, prefer <strong>1920x1080</strong> images.</li>
+                    <li><strong>Plug the USB drive into the PS3</strong>, then go to the <strong>Photo</strong> column of the XMB.</li>
+                    <li>Select the USB drive, choose an image, press <strong>Triangle</strong> and select <strong>"Copy"</strong>. The image will be saved to the PS3's internal storage (Photo folder). You can then find it at any time in the <strong>Photo</strong> column and set it as wallpaper via <strong>Triangle &gt; "Set as Wallpaper"</strong>, without having to plug the USB drive back in.</li>
+                </ol>
+                <blockquote class="callout callout--info">
+                    💡 <strong>If the PS3 does not display the images</strong>: place the cursor on the USB drive icon (without pressing X), press <strong>Triangle</strong> and choose <strong>"Display All"</strong>. This command forces the PS3 to display all compatible files, wherever they are on the device.
+                </blockquote>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Tip</strong>: This method does not replace complete <code>.p3t</code> themes, but it is perfect for a personal wallpaper. For a complete theme, use the classic installation via <code>/dev_hdd0/theme/</code> or the XMB theme manager.
+                </blockquote>
+            </section>
+
+            <section id="etape8" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 10</span>
+                    <h2>🌡️ Step 8: Configuring webMAN MOD (Temperature & Fan)</h2>
+                </div>
+                <p>webMAN MOD offers precise fan control to protect your console. Configuration is done via the <code>/setup.ps3</code> interface (see IP section below).</p>
+
+                <h3>🎛️ The 5 Fan Modes</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Mode</th><th>Description</th><th>Advantages</th><th>Drawbacks</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>SYSCON</strong></td><td>The system manages the fan automatically.</td><td>Stable, no risk of conflict.</td><td>Less aggressive cooling.</td></tr>
+                            <tr><td><strong>DYNAMIC (AUTO)</strong></td><td>webMAN adjusts the speed to reach a <strong>target temperature</strong> (68°C by default).</td><td>Powerful and efficient cooling.</td><td>Can be loud ("airplane effect") on demanding games.</td></tr>
+                            <tr><td><strong>AUTO #2</strong></td><td>Softer algorithm, speed increases progressively with temperature.</td><td>Avoids the "airplane" effect and sudden variations.</td><td>Less effective at cooling quickly.</td></tr>
+                            <tr><td><strong>MANUAL</strong></td><td>You set a <strong>constant fan speed</strong> (35% by default).</td><td>Quiet if speed is low.</td><td>Does not adapt to load, risk of overheating.</td></tr>
+                            <tr><td><strong>PS2 Manual</strong></td><td>Fixed speed specific to PS2 games.</td><td>Dedicated cooling for PS2 games.</td><td>Not applicable to PS3 games.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🌡️ Recommended Temperature Ranges</h3>
+                <ul>
+                    <li><strong>Normal</strong>: Between <strong>65°C and 75°C</strong>.</li>
+                    <li><strong>To avoid</strong>: Above <strong>75°C</strong> for extended periods can damage components in the long term.</li>
+                    <li><strong>DYNAMIC target temperature</strong>: Set between <strong>68°C and 72°C</strong>. A low value (65°C) = louder but more protective. A high value (75°C) = quieter but less effective.</li>
+                    <li><strong>Max speed</strong>: Default 80%, adjustable between 40% and 99%.</li>
+                    <li><strong>Min speed</strong>: Default 25%, adjustable between 20% and 95%.</li>
+                </ul>
+
+                <h3>🎮 In-Game Controller Shortcuts</h3>
+                <ul>
+                    <li><strong>SELECT + UP/DOWN</strong>: Adjust the manual fan speed.</li>
+                    <li><strong>SELECT + LEFT/RIGHT</strong>: Change the target temperature (DYNAMIC mode).</li>
+                    <li><strong>L2 + R2 + △</strong>: Display CPU/RSX temperature.</li>
+                </ul>
+
+                <h3>💡 Practical Tips</h3>
+                <ul>
+                    <li>If your PS3 is a "Fat" model or if the thermal paste is old, prefer <strong>DYNAMIC</strong> or <strong>AUTO #2</strong> mode.</li>
+                    <li><strong>SYSCON</strong> mode is the safest if you don't want to worry about configuration.</li>
+                    <li>For PS2 games, a speed of <strong>40%</strong> is recommended.</li>
+                </ul>
+            </section>
+
+            <section id="etape9" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 11</span>
+                    <h2>🔧 Step 9: Syscalls (CFW Syscalls)</h2>
+                </div>
+                <p><strong>Syscalls</strong> are system calls that allow webMAN MOD to access functions normally reserved for the official firmware (such as mounting games, reading temperature, etc.).</p>
+
+                <h3>🔑 Important Syscalls Used by webMAN MOD</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Syscall</th><th>Function</th><th>Usage</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Syscall 8</strong></td><td>Game mounting (Cobra/Mamba)</td><td>Mounts ISOs and game folders.</td></tr>
+                            <tr><td><strong>Syscall 383</strong></td><td>Temperature reading</td><td>Reads CPU/RSX temperatures.</td></tr>
+                            <tr><td><strong>Syscall 389</strong></td><td>Fan control</td><td>Adjusts fan speed.</td></tr>
+                            <tr><td><strong>Syscall 0x1337</strong></td><td>PS3HEN detection</td><td>Detects if PS3HEN is active.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>⚠️ When to Disable Them?</h3>
+                <ul>
+                    <li><strong>To play online</strong>: Disabling CFW syscalls can reduce the risk of a PSN ban. webMAN MOD allows you to disable them at boot via the <strong>"Disable CFW syscalls"</strong> option in <code>/setup.ps3</code>.</li>
+                    <li><strong>Warning</strong>: Disabling CFW syscalls <strong>also disables webMAN MOD's dynamic fan control</strong>. In this case, the fan remains at the last applied setting.</li>
+                    <li><strong>To re-enable syscalls</strong>: Go to <strong>Custom Firmware Tools</strong> and look for the <strong>"Allow re-enable syscalls"</strong> option. You can also use the <strong>R2 + △</strong> combo to restore CFW syscalls.</li>
+                </ul>
+
+                <h3>💡 Best Practices</h3>
+                <ul>
+                    <li>If you don't play online, leave syscalls enabled to enjoy full webMAN MOD control.</li>
+                    <li>If you play online, disable syscalls <strong>before</strong> launching the game, but be aware that you lose dynamic fan control.</li>
+                    <li>For PS2 games, syscalls must remain <strong>enabled</strong> for ISO mounting to work.</li>
+                </ul>
+            </section>
+
+            <section id="etape10" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 12</span>
+                    <h2>🌐 Step 10: The IP Addresses to Use</h2>
+                </div>
+
+                <h3>📍 PS3 IP Address</h3>
+                <p>To find your PS3's IP address:</p>
+                <ul>
+                    <li><strong>On the PS3</strong>: Go to <strong>Settings &gt; Network Settings &gt; Connection Status</strong>. The IP address is displayed.</li>
+                    <li><strong>On the PC</strong>: If you are connected via FTP with FileZilla, the PS3's IP address is displayed in the status bar.</li>
+                </ul>
+
+                <h3>🌐 Accessing the webMAN MOD Configuration Interface</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Method</th><th>IP Address</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>From PS3</strong></td><td><code>0/setup.ps3</code></td><td>Open the PS3 browser and type this address.</td></tr>
+                            <tr><td><strong>From PS3 (localhost)</strong></td><td><code>127.0.0.1/setup.ps3</code></td><td>Alternative from the PS3 browser.</td></tr>
+                            <tr><td><strong>From PC/Smartphone</strong></td><td><code>[PS3-IP]/setup.ps3</code></td><td>E.g.: <code>192.168.1.70/setup.ps3</code>.</td></tr>
+                            <tr><td><strong>From PC/Smartphone (PS3MAPI)</strong></td><td><code>[PS3-IP]:7887</code></td><td>PS3MAPI interface (advanced debugging).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🔌 Ports Used by webMAN MOD</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Service</th><th>Default Port</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Web Server</strong></td><td><strong>80</strong></td><td>Configuration web interface.</td></tr>
+                            <tr><td><strong>FTP</strong></td><td><strong>21</strong></td><td>File transfer.</td></tr>
+                            <tr><td><strong>PS3MAPI</strong></td><td><strong>7887</strong></td><td>Remote control API.</td></tr>
+                            <tr><td><strong>ps3netsrv</strong></td><td><strong>38008</strong></td><td>Network game streaming.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>⚙️ Recommended Network Configuration</h3>
+                <ul>
+                    <li><strong>Static IP</strong>: It is recommended to use a <strong>static IP address</strong> for the PS3 and PC, especially if you use ps3netsrv.</li>
+                    <li><strong>Same network</strong>: The PC and PS3 must be on the <strong>same network segment</strong> (the first 3 digits of the IP must be identical).</li>
+                    <li><strong>Firewall</strong>: Make sure ports <strong>80, 21, 7887, and 38008</strong> are not blocked by the Windows firewall.</li>
+                </ul>
+            </section>
+
+            <section id="etape11" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 13</span>
+                    <h2>🔐 Step 11: FTP Password Management (root)</h2>
+                </div>
+                <p>The default FTP username on PS3 is almost always <strong><code>root</code></strong>. The password depends on the application providing the FTP server. It is important to understand that <strong>each application manages its own password</strong>: changing webMAN MOD's does not affect multiMAN, and vice versa.</p>
+
+                <h3>📂 Where Is the Password?</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Application</th><th>Password File</th><th>Impact of Change</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>webMAN MOD</strong></td><td><code>/dev_hdd0/tmp/wmtmp/password.txt</code></td><td>Changes <strong>only</strong> webMAN MOD's FTP password.</td></tr>
+                            <tr><td><strong>multiMAN / OpenPS3FTP</strong></td><td><code>/dev_hdd0/game/OFTP00001/USRDIR/password</code></td><td>Changes the FTP password used by multiMAN and servers based on OpenPS3FTP.</td></tr>
+                            <tr><td><strong>Apollo Save Tool</strong></td><td>No complete FTP server</td><td><strong>No impact</strong>: Apollo does not expose a root FTP server.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Good to know</strong>: The username remains <strong><code>root</code></strong>. If the <code>password</code> file is empty, the connection is made <strong>without a password</strong>.
+                </blockquote>
+
+                <h3>🛠️ How to Change webMAN MOD's Password?</h3>
+                <ol>
+                    <li>Connect to your PS3 with FileZilla.</li>
+                    <li>Navigate to the <strong><code>/dev_hdd0/tmp/wmtmp/</code></strong> folder.</li>
+                    <li>Download the <strong><code>password.txt</code></strong> file to your PC.</li>
+                    <li>Open it with a text editor (Notepad, Notepad++…), replace its content with your new password, then save.</li>
+                    <li>Send the <code>password.txt</code> file back to the PS3, in the same folder, overwriting the original.</li>
+                    <li><strong>Restart the PS3</strong> or quit and relaunch webMAN MOD for the change to take effect.</li>
+                </ol>
+
+                <h3>🛠️ How to Change multiMAN / OpenPS3FTP's Password?</h3>
+                <ol>
+                    <li>Connect to your PS3 with FileZilla.</li>
+                    <li>Navigate to the <strong><code>/dev_hdd0/game/OFTP00001/USRDIR/</code></strong> folder.</li>
+                    <li>Download the <strong><code>password</code></strong> file to your PC.</li>
+                    <li>Open it, replace its content with your new password, then save.</li>
+                    <li>Send the <code>password</code> file back to the PS3, in the same folder, overwriting the original.</li>
+                    <li><strong>Restart the PS3</strong> or quit and relaunch multiMAN for the change to take effect.</li>
+                </ol>
+
+                <h3>⚠️ Important Points</h3>
+                <ul>
+                    <li><strong>Password independence</strong>: If you use both webMAN MOD and multiMAN, you can have <strong>two different passwords</strong>. FileZilla will ask for the one corresponding to the active FTP server.</li>
+                    <li><strong>FileZilla profiles</strong>: Create two sites in FileZilla's Site Manager (one for webMAN MOD, one for multiMAN) if you frequently switch servers.</li>
+                    <li><strong>webMAN MOD admin password</strong>: There is also a password for the <strong>administrator mode</strong> of the webMAN MOD web interface. This is <strong>not</strong> the FTP root password. It is set via the URL <code>http://[PS3-IP]/admin.ps3?enable&pwd=YOUR_PASSWORD</code>.</li>
+                </ul>
+            </section>
+
+            <section id="etape12" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 14</span>
+                    <h2>🔄 Step 12: Difference Between webMAN MOD "Q", "S", and "T" Revisions</h2>
+                </div>
+                <p>If you have already downloaded version 1.47.48, you may have noticed the letters <code>q</code>, <code>s</code>, or <code>t</code> at the end. These are not different versions, but <strong>successive revisions</strong> of the same branch. Version <strong><code>t</code> is the most recent and most complete</strong>.</p>
+
+                <h3>📜 History of 1.47.48 Revisions</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Revision</th><th>Release Date</th><th>Main New Features and Fixes</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>1.47.48q</strong></td><td>July 29, 2026</td><td>Explicit support for firmwares 4.92 and 4.93, minor bug fixes (hexadecimal string parsing, PS3MAPI commands).</td></tr>
+                            <tr><td><strong>1.47.48s</strong></td><td>Late August 2026</td><td><strong>Major fix</strong>: repairs the regression that broke FTP compatibility with FileZilla. Also adds fixes for network folders and qCFW detection.</td></tr>
+                            <tr><td><strong>1.47.48t</strong></td><td>September 20, 2026</td><td>Includes <strong>all fixes from <code>s</code></strong>, plus: repairs broken GitHub links (online covers and homebrew downloads), adds support for <strong>overclocking the RSX second memory channel</strong>, and fixes various other bugs (501 error on FTP, "NET folders" options...).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🎯 Which One to Choose?</h3>
+                <p>For use with <strong>CFW Evilnat 4.93</strong> and <strong>FileZilla</strong>, the answer is without hesitation <strong>version <code>1.47.48t</code></strong>.</p>
+                <blockquote class="callout callout--info">
+                    💡 <strong>In summary</strong>: <code>t</code> is an update of <code>s</code>, which itself is an update of <code>q</code>. If you are on <code>q</code> or <code>s</code> and have FTP issues, <code>t</code> is the direct solution.
+                </blockquote>
+            </section>
+
+            <section id="etape13" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 15</span>
+                    <h2>📥 Step 13: Configuring NPS Browser (PC)</h2>
+                </div>
+                <p><strong>NPS Browser</strong> is a PC tool that allows you to download games, DLCs, and themes from Sony's servers. It does not store them; it indexes direct links. Once configured, it downloads and decrypts files automatically.</p>
+
+                <h3>🛠️ Prerequisites</h3>
+                <ul>
+                    <li><strong>NPS Browser</strong>: <a href="https://github.com/jdperos/nps_browser/releases" target="_blank" rel="noopener">Download the latest version</a></li>
+                    <li><strong>pkg2zip</strong>: <a href="https://github.com/mmozeiko/pkg2zip/releases" target="_blank" rel="noopener">Download the decryption tool</a></li>
+                    <li>An <strong>empty folder</strong> on your hard drive for downloads.</li>
+                </ul>
+
+                <h3>⚙️ Configuring NPS Browser</h3>
+                <p>Launch NPS Browser as administrator, then open <strong>Options</strong>.</p>
+
+                <h4>1. TSV Files (Databases)</h4>
+                <p><strong>Simplest method: Paste the URLs directly</strong> into the corresponding fields. NPS Browser will download and update them automatically on each launch.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Section</th><th>Platform</th><th>TSV Link</th></tr></thead>
+                        <tbody>
+                            <tr><td rowspan="4"><strong>Games</strong></td><td>PS3</td><td><code>https://nopaystation.com/tsv/PS3_GAMES.tsv</code></td></tr>
+                            <tr><td>PSP</td><td><code>https://nopaystation.com/tsv/PSP_GAMES.tsv</code></td></tr>
+                            <tr><td>PSX (PS1)</td><td><code>https://nopaystation.com/tsv/PSX_GAMES.tsv</code></td></tr>
+                            <tr><td>PSV (Vita)</td><td><code>https://nopaystation.com/tsv/PSV_GAMES.tsv</code></td></tr>
+                            <tr><td rowspan="2"><strong>DLCs</strong></td><td>PS3</td><td><code>https://nopaystation.com/tsv/PS3_DLCS.tsv</code></td></tr>
+                            <tr><td>PSP</td><td><code>https://nopaystation.com/tsv/PSP_DLCS.tsv</code></td></tr>
+                            <tr><td rowspan="2"><strong>Themes</strong></td><td>PS3</td><td><code>https://nopaystation.com/tsv/PS3_THEMES.tsv</code></td></tr>
+                            <tr><td>PSP</td><td><code>https://nopaystation.com/tsv/PSP_THEMES.tsv</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Note</strong>: PS2 DLCs are not supported by NPS Browser. For PS1, DLCs are included in the game.
+                </blockquote>
+
+                <h4>2. Download Directory</h4>
+                <ul>
+                    <li><strong>Download and unpack dir</strong>: Click <strong>Browse</strong> and select the empty folder created earlier. Avoid paths with spaces or special characters.</li>
+                </ul>
+
+                <h4>3. Decryption Tool</h4>
+                <ul>
+                    <li><strong>Any pkg dec tool</strong>: Click <strong>Browse</strong> and select the <strong><code>pkg2zip.exe</code></strong> file.</li>
+                    <li><strong>Your pkg dec params</strong>: Leave the default value: <code>-x {pkgFile} "{zRifKey}"</code>.</li>
+                </ul>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: For compressed CSO files, add <code>-c9</code> after <code>-x</code>: <code>-x -c9 {pkgFile} "{zRifKey}"</code>.
+                </blockquote>
+
+                <h4>4. Additional Options</h4>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>Recommendation</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>Delete files after successful unpack</code></td><td>✅ Check to save disk space</td></tr>
+                            <tr><td><code>Simultaneous downloads</code></td><td>Leave at <code>2</code></td></tr>
+                            <tr><td><code>HMAC key for updates</code></td><td><em>(Optional)</em> <code>E5E278AA1EE34082A088279C83F9BBC806821C52F2AB5D2B4ABD995450355114</code></td></tr>
+                            <tr><td><code>CompPack URL</code></td><td><em>(Optional)</em> <code>https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries.txt</code></td></tr>
+                            <tr><td><code>CompPack patch URL</code></td><td><em>(Optional)</em> <code>https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries_patch.txt</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🚀 Usage</h3>
+                <ol>
+                    <li>Close the <strong>Options</strong>.</li>
+                    <li>Search for your game in the list.</li>
+                    <li>Double-click on it and click <strong>"Download and Unpack"</strong>.</li>
+                    <li>NPS Browser will download the <code>.pkg</code>, decrypt it with <code>pkg2zip</code>, and extract it to the chosen folder.</li>
+                </ol>
+
+                <h3>📦 After Downloading</h3>
+                <ul>
+                    <li><strong>PS3 Games (Folder/JB)</strong>: The extracted folder contains the game files. Place it in <code>/dev_hdd0/GAMES/</code>.</li>
+                    <li><strong>PS3/PS2/PS1/PSP Games (ISO)</strong>: Place the <code>.iso</code> files in the corresponding folders (<code>PS3ISO</code>, <code>PS2ISO</code>, <code>PSXISO</code>, <code>PSPISO</code>).</li>
+                    <li><strong>PSN Games (PKG)</strong>: Install the <code>.pkg</code> via the XMB package manager.</li>
+                    <li><strong>Licenses (RAP)</strong>: Place the <code>.rap</code> files in <code>/dev_hdd0/exdata/</code>.</li>
+                </ul>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- SECTION: PS MULTI TOOLS v16.2                            -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+
+            <section id="psmultitools" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 15b</span>
+                    <h2>🛠️ Using PS Multi Tools v16.2 from A to Z</h2>
+                </div>
+                <p><strong>PS Multi Tools</strong> is an all-in-one PC toolbox (Windows, Linux, macOS, FreeBSD) that allows you to manage saves, convert files, create and extract ISOs, download firmwares, homebrews, and much more for all PlayStation consoles (PS1, PS2, PSX, PS3, PS4, PS5, PSP, PS Vita).</p>
+
+                <h3>📋 Prerequisites and Installation</h3>
+
+                <h4>System Requirements</h4>
+                <ul>
+                    <li><strong>Windows</strong>: <a href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-9.0-windows-x64-installer" target="_blank" rel="noopener">.NET 9.0 Desktop Runtime (x64)</a></li>
+                    <li><strong>Disk space</strong>: Allow enough space for ISO and PKG extractions.</li>
+                    <li><strong>Internet connection</strong>: Required for firmware and homebrew downloads.</li>
+                </ul>
+
+                <h4>Installation</h4>
+                <ol>
+                    <li>Download the latest version from the <a href="https://github.com/SvenGDK/PS-Multi-Tools/releases" target="_blank" rel="noopener">GitHub releases page</a>.</li>
+                    <li>Extract the archive to a folder on your PC.</li>
+                    <li>Run <code>PSMultiTools.exe</code>.</li>
+                    <li>If Windows Defender blocks the file, add an exclusion for the folder (classic false positive for PS3 scene tools).</li>
+                </ol>
+
+                <h4>Main Interface</h4>
+                <p>The application is organized into tabs in the top menu bar:</p>
+                <ul>
+                    <li><strong>Library</strong>: Save manager (displays your games and applications).</li>
+                    <li><strong>Tools</strong>: File conversion and manipulation tools.</li>
+                    <li><strong>Downloads</strong>: Firmware, homebrew, and payload downloads.</li>
+                    <li><strong>Homebrew</strong>: Library of available homebrews.</li>
+                    <li><strong>Firmwares</strong>: Download of official and custom firmwares.</li>
+                    <li><strong>PKG Browser &amp; Downloader</strong>: Browse and download PKGs.</li>
+                    <li><strong>webMAN MOD</strong>: webMAN MOD related features.</li>
+                    <li><strong>Settings</strong>: Application settings (PS3 IP address, etc.).</li>
+                </ul>
+
+                <h3>🎮 PS3 Section: Detailed Tool Guide</h3>
+
+                <h4>1. 🖥️ ISO Tools</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>ISO Tools</strong> or via the <strong>PS3 Library</strong> &gt; <strong>Tools</strong> menu.</p>
+
+                <h5>Create an ISO from a Game Folder</h5>
+                <ol>
+                    <li>Select <strong>"Create an ISO of your backup folder"</strong>.</li>
+                    <li>Click <strong>Browse</strong> next to <strong>"Select a game backup folder"</strong>.</li>
+                    <li>Select the <strong>root folder</strong> of your game (the one containing <code>PS3_GAME</code>, <code>PS3_UPDATE</code>, and <code>PS3_DISC.SFB</code>).</li>
+                    <li>Click <strong>Browse</strong> next to <strong>"Select an output folder"</strong> and choose where to save the ISO.</li>
+                    <li>Click <strong>"Create ISO"</strong>.</li>
+                    <li>Wait for the process to finish (the ISO file appears in the output folder).</li>
+                </ol>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: If you renamed the <code>PS3_GAME</code> folder to something else, rename it back to <code>PS3_GAME</code> first so the tool recognizes it.
+                </blockquote>
+
+                <h5>Extract the Content of an ISO</h5>
+                <ol>
+                    <li>In the <strong>"Split / Patch / Extract / Decrypt a PS3 ISO"</strong> section, click <strong>Browse</strong> next to <strong>"Selected ISO file"</strong>.</li>
+                    <li>Select your <code>.iso</code> file.</li>
+                    <li>Check <strong>"Extract selected ISO"</strong>.</li>
+                    <li>Click <strong>Browse</strong> next to <strong>"Select output folder"</strong> and choose a destination folder.</li>
+                    <li>Optional: Check <strong>"Split large extracted files"</strong> to split files &gt; 4 GB.</li>
+                    <li>Click <strong>"Modify ISO"</strong>.</li>
+                    <li>Wait for the extraction to finish.</li>
+                </ol>
+
+                <h5>Decrypt an ISO with a DKEY File</h5>
+                <ol>
+                    <li>In the <strong>"Split / Patch / Extract / Decrypt a PS3 ISO"</strong> section, click <strong>Browse</strong> next to <strong>"Selected ISO file"</strong>.</li>
+                    <li>Select your <code>.iso</code> file (Redump encrypted).</li>
+                    <li>Check <strong>"Decrypt selected ISO"</strong>.</li>
+                    <li>Click <strong>Browse</strong> next to <strong>"Select an output folder (optional)"</strong>.</li>
+                    <li>In the <strong>"Enter decryption key or select a DKEY file"</strong> field, click <strong>Browse</strong> and select your <code>.dkey</code> file, or paste the hexadecimal key directly.</li>
+                    <li>Click <strong>"Modify ISO"</strong>.</li>
+                    <li>A new decrypted ISO will be created (suffix <code>.dec.iso</code>).</li>
+                </ol>
+
+                <h5>Patch an ISO (4.21 to 4.60)</h5>
+                <ol>
+                    <li>Select your ISO.</li>
+                    <li>Check <strong>"Patch selected ISO"</strong>.</li>
+                    <li>In <strong>"Version"</strong>, select the target version (e.g.: <code>4.21</code>).</li>
+                    <li>Click <strong>"Modify ISO"</strong>.</li>
+                </ol>
+
+                <h5>Split an ISO into 4 GB parts (FAT32)</h5>
+                <ol>
+                    <li>Select your ISO.</li>
+                    <li>Check <strong>"Only split the selected ISO"</strong>.</li>
+                    <li>Click <strong>"Modify ISO"</strong>.</li>
+                    <li>The tool creates files <code>.iso.0</code>, <code>.iso.1</code>, etc.</li>
+                </ol>
+
+                <h4>2. 📦 PKG Extractor</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PC - Windows Utilities</strong> &gt; <strong>PKG Extractor</strong>.</p>
+
+                <h5>Extract a PKG</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> or <strong>Add</strong> to select your <code>.pkg</code> files.</li>
+                    <li>Choose a destination folder.</li>
+                    <li>Click <strong>Extract</strong>.</li>
+                    <li>The extracted files appear in the chosen folder (often with the structure <code>NP00PKGI3/USRDIR/</code>).</li>
+                </ol>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: You can also <strong>drag and drop</strong> a <code>.pkg</code> file directly onto the PS Multi Tools window to start extraction automatically.
+                </blockquote>
+
+                <h4>3. 📝 PARAM.SFO Editor</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PARAM.SFO Editor</strong> or by dragging and dropping a <code>PARAM.SFO</code> file onto the main window.</p>
+
+                <h5>Modify a PARAM.SFO</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> and select your <code>PARAM.SFO</code> file.</li>
+                    <li>The available fields are displayed:
+                        <ul>
+                            <li><strong>TitleID</strong>: The game ID (e.g.: <code>BLES01646</code>).</li>
+                            <li><strong>Title</strong>: The game name.</li>
+                            <li><strong>Category</strong>: The category (<code>DG</code> for Disc Game, <code>HG</code> for Harddrive Game).</li>
+                            <li><strong>App Ver</strong>: The application version.</li>
+                            <li><strong>Version</strong>: The content version.</li>
+                        </ul>
+                    </li>
+                    <li>Modify the desired fields.</li>
+                    <li>Click <strong>Save</strong> to save.</li>
+                </ol>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Important</strong>: The <code>TitleID</code> must match the game folder and the re-signed <code>EBOOT.BIN</code>. If you change the <code>TitleID</code>, also rename the <code>PS3_GAME</code> folder accordingly.
+                </blockquote>
+
+                <h4>4. 📖 PKG Infos Reader</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PKG Infos Reader</strong>.</p>
+
+                <h5>Read PKG Information</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> and select your <code>.pkg</code> file.</li>
+                    <li>The tool displays:
+                        <ul>
+                            <li><strong>Content ID</strong>: The unique content identifier (e.g.: <code>UP0001-NP00PKGI3_00-0000000000000000</code>).</li>
+                            <li><strong>Title</strong>: The content name.</li>
+                            <li><strong>Version</strong>: The content version.</li>
+                            <li><strong>Category</strong>: The category (Game, DLC, Theme, etc.).</li>
+                            <li><strong>Size</strong>: The PKG size.</li>
+                        </ul>
+                    </li>
+                    <li>No modification is possible in this window; it is a read-only tool.</li>
+                </ol>
+
+                <h4>5. 🔧 PUP Unpacker</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PUP Unpacker</strong>.</p>
+
+                <h5>Extract the Content of a PUP Firmware</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> and select your <code>.PUP</code> file (PS3 firmware).</li>
+                    <li>Choose a destination folder.</li>
+                    <li>Click <strong>Unpack</strong>.</li>
+                    <li>The tool extracts the firmware files (useful for recovering system files or analyzing a CFW).</li>
+                </ol>
+
+                <h4>6. 🖼️ RCO Dumper</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>RCO Dumper</strong>.</p>
+
+                <h5>Extract RCO Resources</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> and select your <code>.rco</code> file (PS3 resource file).</li>
+                    <li>Choose a destination folder.</li>
+                    <li>Click <strong>Dump</strong>.</li>
+                    <li>The tool extracts the resources (icons, images, etc.) contained in the RCO.</li>
+                </ol>
+
+                <h4>7. 🔍 SELF Reader</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>SELF Reader</strong>.</p>
+
+                <h5>Read SELF Information</h5>
+                <ol>
+                    <li>Click <strong>Browse</strong> and select your <code>.self</code> file (or <code>EBOOT.BIN</code>).</li>
+                    <li>The tool displays the file information:
+                        <ul>
+                            <li><strong>Content ID</strong>: The content identifier.</li>
+                            <li><strong>Type</strong>: The SELF type (EBOOT, SPRX, etc.).</li>
+                            <li><strong>Version</strong>: The file version.</li>
+                        </ul>
+                    </li>
+                    <li>This tool is read-only; it does not allow modifying or re-signing the file.</li>
+                </ol>
+
+                <h4>8. 🌐 webMAN MOD Features</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>webMAN MOD Features</strong>.</p>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Prerequisite</strong>: Your PS3 must be powered on, connected to the network, and webMAN MOD must be running. Configure your PS3's IP address in <strong>Settings</strong> &gt; <strong>PS3 IP Address</strong>.
+                </blockquote>
+
+                <h5>PS3NetSrv Utilities</h5>
+                <ul>
+                    <li><strong>Create folder structure (GAMES, PS3ISO, ...)</strong>: Creates the folder tree needed for ps3netsrv on your PC.</li>
+                    <li><strong>Manage virtual folders for ps3netsrv</strong>: Manages shared virtual folders.</li>
+                    <li><strong>Share a single folder</strong>: Shares a single folder.</li>
+                    <li><strong>Share configured managed virtual folders</strong>: Shares the configured virtual folders.</li>
+                </ul>
+
+                <h5>Disc &amp; Game Utilities</h5>
+                <ul>
+                    <li><strong>Play inserted disc</strong>: Launches the disc inserted in the PS3.</li>
+                    <li><strong>Eject inserted disc</strong>: Ejects the disc.</li>
+                    <li><strong>Insert disc in tray</strong>: Inserts the disc into the drive.</li>
+                    <li><strong>Exit game to XMB</strong>: Quits the current game and returns to the XMB.</li>
+                    <li><strong>Reload PS3 game</strong>: Reloads the current game.</li>
+                    <li><strong>Toggle video recording (in-game)</strong>: Enables/disables in-game video recording.</li>
+                    <li><strong>Toggle in-game background music playback</strong>: Enables/disables in-game background music.</li>
+                </ul>
+
+                <h5>General Utilities</h5>
+                <ul>
+                    <li><strong>Rescan the games and refresh XML</strong>: Refreshes the game list in webMAN MOD.</li>
+                    <li><strong>Shutdown the PS3 console</strong>: Powers off the PS3.</li>
+                    <li><strong>Restart the PS3 console</strong>: Restarts the PS3.</li>
+                    <li><strong>Restart the PS3 console and allow scan content on startup</strong>: Restarts and scans content on startup.</li>
+                    <li><strong>Restart the PS3 console and show the min version</strong>: Restarts and shows the minimum version.</li>
+                    <li><strong>Hard reboot</strong>: Forced reboot.</li>
+                    <li><strong>Reboot using VSH command</strong>: Reboots via the VSH command.</li>
+                    <li><strong>Open an URL on the PS3 web browser</strong>: Opens a URL in the PS3 browser.</li>
+                </ul>
+
+                <h5>Download &amp; Installation Utilities</h5>
+                <ul>
+                    <li><strong>Download a PKG from an URL to the PS3 HDD</strong>: Downloads a PKG from a URL to the PS3's hard drive.</li>
+                    <li><strong>Download a file from an URL to the PS3 HDD</strong>: Downloads a file from a URL to the PS3's hard drive.</li>
+                    <li><strong>Download &amp; Install a PKG from an URL</strong>: Downloads and installs a PKG from a URL.</li>
+                    <li><strong>Install a PKG from the PS3 HDD</strong>: Installs a PKG from the PS3's hard drive.</li>
+                    <li><strong>Install a theme from the PS3 HDD</strong>: Installs a theme from the PS3's hard drive.</li>
+                </ul>
+
+                <h5>Temperature Monitoring</h5>
+                <ul>
+                    <li><strong>Web GUI for monitor temperatures in Celsius</strong>: Opens the web interface for temperature monitoring in Celsius.</li>
+                    <li><strong>Web GUI for monitor temperatures in Fahrenheit</strong>: Opens the web interface for temperature monitoring in Fahrenheit.</li>
+                    <li><strong>Show system info on PS3</strong>: Displays system information on the PS3.</li>
+                </ul>
+
+                <h4>9. 🛠️ Core_OS Tools</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>Core_OS Tools</strong>.</p>
+                <p>This tool allows you to manipulate PS3 Core OS files (used mainly for development and research).</p>
+
+                <h4>10. 🔧 Fix Tar Tool</h4>
+                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>Fix Tar Tool</strong>.</p>
+                <p>This tool repairs corrupted or malformed TAR archives, often used in PS3 firmwares.</p>
+
+                <h3>🚀 Advanced Usage: Creating a PKG for PKGi</h3>
+                <p>Here is how to use PS Multi Tools to create a custom PKG (e.g.: PKGi with your <code>.txt</code> files embedded).</p>
+
+                <h4>Folder Preparation</h4>
+                <ol>
+                    <li>Extract the original PKGi PKG with <strong>PKG Extractor</strong>.</li>
+                    <li>You get a <code>NP00PKGI3/</code> folder with the following structure:
+                        <pre><code>NP00PKGI3/
+├── PARAM.SFO
+├── ICON0.PNG
+└── USRDIR/
+    ├── EBOOT.BIN
+    ├── LANG/
+    └── (your .txt files)</code></pre>
+                    </li>
+                    <li>Add or modify the desired files (e.g.: <code>pkgi_games.txt</code>, <code>pkgi_dlcs.txt</code>).</li>
+                    <li>Re-sign the <code>EBOOT.BIN</code> if necessary with <strong>TrueAncestor SELF Resigner</strong>.</li>
+                </ol>
+
+                <h4>📦 PKG Creation (continued)</h4>
+                <ul>
+                    <li><strong>With PS3 Tools Collection (Aldostools)</strong>:<br>
+                        <strong>Right-click</strong> on the <code>NP00PKGI3</code> folder and choose <strong>"Make PKG"</strong>.</li>
+                    <li><strong>With PSN Liberator</strong>:<br>
+                        Drag and drop the <code>NP00PKGI3</code> folder into the window and choose the <strong>PKG</strong> format.</li>
+                </ul>
+                <p>The <code>.pkg</code> file is created in the output folder.</p>
+
+                <h4>Installation on PS3</h4>
+                <ol>
+                    <li>Transfer the <code>.pkg</code> to <code>/dev_hdd0/packages/</code> via FTP.</li>
+                    <li>Install it via <strong>Package Manager</strong> &gt; <strong>Install Package Files</strong>.</li>
+                </ol>
+
+                <h3>🆘 Troubleshooting</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Problem</th><th>Solution</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>The tool doesn't launch</strong></td><td>Check that <strong>.NET 9.0 Desktop Runtime</strong> is installed.</td></tr>
+                            <tr><td><strong>Windows Defender blocks the tool</strong></td><td>Add an exclusion for the PS Multi Tools folder (false positive).</td></tr>
+                            <tr><td><strong>"Create ISO" does nothing</strong></td><td>Check that the <code>PS3_GAME</code> folder is present at the root.</td></tr>
+                            <tr><td><strong>The created PKG won't install</strong></td><td>Check that the <code>EBOOT.BIN</code> is correctly re-signed.</td></tr>
+                            <tr><td><strong>webMAN MOD Features doesn't respond</strong></td><td>Check the PS3 IP address in <strong>Settings</strong> and that webMAN MOD is running.</td></tr>
+                            <tr><td><strong>Error 80010017 after installation</strong></td><td>The <code>EBOOT.BIN</code> is not correctly signed. Re-sign it with <strong>TrueAncestor</strong>.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>📌 In Summary</h3>
+                <p>PS Multi Tools v16.2 is an <strong>indispensable Swiss Army knife</strong> for any jailbroken PS3 user. It allows you to:</p>
+                <ul>
+                    <li>✅ Create, extract, split, and decrypt <strong>PS3 ISOs</strong>.</li>
+                    <li>✅ Extract and analyze <strong>PKGs</strong>.</li>
+                    <li>✅ Modify <strong><code>PARAM.SFO</code></strong> files.</li>
+                    <li>✅ Manage <strong>firmwares</strong> and <strong>homebrews</strong>.</li>
+                    <li>✅ Control your PS3 remotely via <strong>webMAN MOD</strong>.</li>
+                </ul>
+                <p>With this guide, you have all the keys to use the tool from A to Z. Happy modding! 🎮</p>
+                <blockquote class="callout callout--info">
+                    📖 <strong>Guide written for PS Multi Tools v16.2.</strong> Consult the <a href="https://github.com/SvenGDK/PS-Multi-Tools" target="_blank" rel="noopener">official documentation</a> for the latest updates. By LvSs7... and you...
+                </blockquote>
+            </section>
+
+            <section id="etape14" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 16</span>
+                    <h2>🎮 Step 14: Fixing Error 80028F10 (PS1 Games)</h2>
+                </div>
+                <p>Error <strong><code>80028F10</code></strong> ("Cannot read this game according to the current video output setting") is very common with PS1 games. It occurs mainly due to a conflict between the <strong>720p</strong> resolution and the PS1 emulator.</p>
+
+                <h3>🎯 Solution: Disable the 720p Resolution</h3>
+                <ol>
+                    <li>Go to <strong>Settings</strong> &gt; <strong>Display Settings</strong> &gt; <strong>Video Output Settings</strong>.</li>
+                    <li>Select your connection type (HDMI, etc.).</li>
+                    <li>Choose <strong>Custom</strong> (not Automatic).</li>
+                    <li><strong>Uncheck the <code>720p</code> box</strong>.</li>
+                    <li>Leave <strong>1080p</strong> and <strong>1080i</strong> checked. For a PAL game, leave <strong>576p</strong>; for an NTSC game, leave <strong>480p</strong>.</li>
+                    <li>Confirm and relaunch the game.</li>
+                </ol>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Why does it work?</strong> The PS3's PS1 emulator has a known bug with the 720p resolution. By disabling it, we force the PS3 to negotiate a display mode that the game accepts.
+                </blockquote>
+
+                <h3>⚙️ Complementary Solutions</h3>
+                <ul>
+                    <li><strong>Disable smoothing</strong>: Go to <strong>Settings</strong> &gt; <strong>Game Settings</strong> &gt; <strong>PS/PS2 Settings</strong> and set <strong>Smoothing</strong> to <strong>Off</strong>.</li>
+                    <li><strong>Adjust the display mode</strong>: In-game, press the <strong>PS button</strong>, go to <strong>Other Settings</strong> &gt; <strong>PS/PS2 Settings</strong>, and try changing the <strong>Display Mode</strong> from <strong>Full Screen</strong> to <strong>Normal</strong>.</li>
+                    <li><strong>Check the region</strong>: The error is also common with PAL games (50 Hz) on an NTSC PS3 (60 Hz). Disabling 720p often solves this problem.</li>
+                </ul>
+
+                <h3>📌 To Remember</h3>
+                <ul>
+                    <li>If you need to re-enable 720p for other PS3 games, remember to uncheck it again for problematic PS1 games.</li>
+                    <li>Leaving 720p unchecked permanently is a viable solution; most modern PS3 games do perfectly well without it.</li>
+                </ul>
+            </section>
+
+            <section id="etape15" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 17</span>
+                    <h2>🛠️ Step 15: Rusty-PSN — Downloading PS3 Updates</h2>
+                </div>
+                <p><strong>Rusty-PSN</strong> is an open-source tool developed by RainbowCookie32, written in Python. It allows you to download <strong>official PS3 game updates</strong> (<code>.pkg</code> files) directly from Sony's servers. It is the most recommended and most used tool in the RPCS3 and jailbroken PS3 community.</p>
+
+                <h3>✅ Features</h3>
+                <ul>
+                    <li><strong>Search by Title ID</strong>: Enter your game's ID (e.g.: <code>BLES00503</code>) and the tool finds all available updates.</li>
+                    <li><strong>Direct download</strong>: <code>.pkg</code> files are retrieved directly from Sony's servers.</li>
+                    <li><strong>Compatibility</strong>: Windows, Linux, and macOS.</li>
+                    <li><strong>Two interfaces</strong>: <strong>EGUI</strong> version (graphical interface) and <strong>CLI</strong> version (command line).</li>
+                </ul>
+
+                <h3>📥 Download</h3>
+                <p>Go to the official releases page:</p>
+                <ul>
+                    <li><strong>GitHub Link</strong>: <code>https://github.com/RainbowCookie32/rusty-psn/releases</code></li>
+                </ul>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>File</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>rusty-psn-egui-windows.zip</code></td><td>Version with graphical interface (recommended)</td></tr>
+                            <tr><td><code>rusty-psn-cli-windows.zip</code></td><td>Command line version (for scripts)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: Take the <strong>EGUI</strong> version for normal use. The CLI version is useful for automating or scripting.
+                </blockquote>
+
+                <h3>🚀 Usage</h3>
+                <ol>
+                    <li>Download and extract <code>rusty-psn-egui-windows.zip</code>.</li>
+                    <li>Run <code>rusty-psn.exe</code>.</li>
+                    <li>Enter your game's ID (e.g.: <code>BLES00503</code>) in the search bar.</li>
+                    <li>Click <strong>Search</strong>.</li>
+                    <li>The tool displays available updates. Click <strong>Download</strong> to download them.</li>
+                    <li>Install the <code>.pkg</code> files on your PS3 via the <strong>Package Manager</strong> in the XMB.</li>
+                </ol>
+            </section>
+
+            <section id="etape16" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 18</span>
+                    <h2>🛠️ Step 16: PySN — Multi-Console Update Manager</h2>
+                </div>
+                <p><strong>PySN</strong> is another open-source tool developed by AphelionWasTaken. Unlike Rusty-PSN, which focuses on the PS3, <strong>PySN supports the PS3, PS4, PS Vita, and even PS3/PS4/PS5/Vita firmwares</strong>. It is the most complete tool for managing updates for multiple consoles.</p>
+
+                <h3>✅ Features</h3>
+                <ul>
+                    <li><strong>Multi-console</strong>: PS3, PS4, PS Vita.</li>
+                    <li><strong>Search by Title ID</strong>: Enter the game ID and the tool finds updates.</li>
+                    <li><strong>RPCS3 scan</strong>: Can scan your RPCS3 <code>games.yml</code> file to find updates for all your installed games at once.</li>
+                    <li><strong>Firmware download</strong>: Supports PS3, PS4, PS5, and Vita firmwares.</li>
+                    <li><strong>SHA-1 verification</strong>: Ensures the integrity of downloaded files.</li>
+                    <li><strong>Graphical interface</strong>: Clear and easy-to-use interface.</li>
+                </ul>
+
+                <h3>📥 Download</h3>
+                <p>Go to the official releases page:</p>
+                <ul>
+                    <li><strong>GitHub Link</strong>: <code>https://github.com/AphelionWasTaken/PySN/releases/latest</code></li>
+                </ul>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>File</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>PySN_Windows.zip</code></td><td>Windows version</td></tr>
+                            <tr><td><code>PySN_MacOS.zip</code></td><td>macOS version (Intel)</td></tr>
+                            <tr><td><code>PySN_MacOS_ARM.zip</code></td><td>macOS version (Apple Silicon)</td></tr>
+                            <tr><td><code>PySN_Linux.zip</code></td><td>Linux version</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: On Windows, extract the folder and run the <code>.exe</code>. On macOS, it is recommended to move the extracted application to a new folder to prevent downloads from being sent to the <code>AppTranslocation</code> folder.
+                </blockquote>
+
+                <h3>🚀 Usage</h3>
+                <ol>
+                    <li>Download and extract <code>PySN_Windows.zip</code>.</li>
+                    <li>Run the <code>.exe</code> file.</li>
+                    <li>Enter your game's ID (e.g.: <code>BCUS98114</code>) in the search bar.</li>
+                    <li>Select the console from the dropdown menu (PS3, PS4, PS Vita).</li>
+                    <li>Click <strong>Search</strong>.</li>
+                    <li>The tool lists available updates. Confirm the download.</li>
+                    <li>Install the <code>.pkg</code> files on your console.</li>
+                </ol>
+                <blockquote class="callout callout--info">
+                    💡 <strong>RPCS3 Tip</strong>: If you use RPCS3, point PySN to your RPCS3 installation in the settings. Then check <strong>"Search Games.yml"</strong> and click Search to find updates for <strong>all your installed games at once</strong>.
+                </blockquote>
+
+                <h3>📦 Where Are the Files Stored?</h3>
+                <p>Updates are downloaded to an <code>Updates</code> folder in the PySN directory by default, separated by console and game (e.g.: <code>PySN/Updates/PlayStation 3/BCUS98114 Gran Turismo 5</code>). You can change this folder in the settings.</p>
+            </section>
+
+            <section id="comparatif" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 19</span>
+                    <h2>📊 Rusty-PSN vs PySN Comparison</h2>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Criterion</th><th>Rusty-PSN</th><th>PySN</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Supported platforms</strong></td><td>PS3 only</td><td>PS3, PS4, PS Vita</td></tr>
+                            <tr><td><strong>Firmwares</strong></td><td>No</td><td>PS3, PS4, PS5, Vita</td></tr>
+                            <tr><td><strong>RPCS3 scan</strong></td><td>No</td><td>Yes (games.yml)</td></tr>
+                            <tr><td><strong>SHA-1 verification</strong></td><td>No</td><td>Yes</td></tr>
+                            <tr><td><strong>Graphical interface</strong></td><td>Yes (EGUI)</td><td>Yes</td></tr>
+                            <tr><td><strong>Command line</strong></td><td>Yes (CLI)</td><td>Yes (PySN_CMD)</td></tr>
+                            <tr><td><strong>Ease of use</strong></td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    🎯 <strong>Recommendation</strong>: For simple, fast use on PS3, <strong>Rusty-PSN</strong> is perfect. If you manage multiple consoles (PS3, PS4, Vita) or use RPCS3, <strong>PySN</strong> is more complete.
+                </blockquote>
+            </section>
+
+            <section id="depannage" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 20</span>
+                    <h2>🚑 Quick Troubleshooting</h2>
+                </div>
+
+                <details class="faq">
+                    <summary>❌ Error: "Invalid character sequence received"</summary>
+                    <p><strong>Solution</strong>: Go back to FileZilla's Site Manager (tab <strong>Charset</strong>) and make sure <strong>"Force UTF-8"</strong> is selected. If the problem persists, try the "Use custom charset" option and type <code>UTF8</code>. Also consider updating webMAN MOD to version <strong>1.47.48t</strong>.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ The game doesn't appear on the PS3</summary>
+                    <ul>
+                        <li><strong>Solution 1</strong>: Check that the game folder is correctly placed in <code>dev_hdd0/GAMES/</code> and not elsewhere.</li>
+                        <li><strong>Solution 2</strong>: Check that the folder contains the <code>PS3_DISC.SFB</code> file and the <code>PS3_GAME</code> folder at the root.</li>
+                        <li><strong>Solution 3</strong>: Restart the PS3 to force a rebuild of the game database.</li>
+                    </ul>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ The PS2 game won't launch (under CFW)</summary>
+                    <p><strong>Solution</strong>: Check that your ISO is <strong>unencrypted</strong> and placed in <code>/dev_hdd0/PS2ISO/</code>. If a specific game has bugs, look for a matching <code>.CONFIG</code> file and place it next to the ISO. The <code>.CONFIG</code> must have exactly the name of the ISO followed by <code>.CONFIG</code> (example: <code>Grand Theft Auto - San Andreas v2.01.iso.CONFIG</code>).</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ The PS1 game won't launch</summary>
+                    <ul>
+                        <li><strong>Solution 1</strong>: Check that the <code>.cue</code> file is next to the <code>.bin</code> with the same name.</li>
+                        <li><strong>Solution 2</strong>: Try switching the emulator to <code>ps1_netemu.self</code> in <code>/setup.ps3</code>.</li>
+                        <li><strong>Solution 3</strong>: Disable the 720p resolution (see Step 14).</li>
+                    </ul>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ Error 80028F10 on a PS1 game</summary>
+                    <p><strong>Solution</strong>: See <strong>Step 14</strong> — disable the 720p resolution in the display settings.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ FTP connection fails</summary>
+                    <p><strong>Solution</strong>: Check that the Windows firewall is not blocking FileZilla. Try switching to "Active" mode in FileZilla settings or temporarily disable the firewall.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ I can no longer connect via FTP after changing the password</summary>
+                    <ul>
+                        <li><strong>webMAN MOD</strong>: <code>/dev_hdd0/tmp/wmtmp/password.txt</code></li>
+                        <li><strong>multiMAN / OpenPS3FTP</strong>: <code>/dev_hdd0/game/OFTP00001/USRDIR/password</code></li>
+                    </ul>
+                    <p>Restart the PS3. If necessary, empty the <code>password</code> file to return to a connection <strong>without a password</strong>.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ The PSN game won't launch despite the PKG being installed</summary>
+                    <p><strong>Solution</strong>: Check that the <code>.rap</code> file is present in <code>/dev_hdd0/exdata/</code>, that the <code>.rif</code> and <code>.edat</code> files are in <code>/dev_hdd0/home/[YOUR_ID]/exdata/</code>, and that all extensions are lowercase. For certain DLCs, check that the <code>.edat</code> file is also in the game's <code>USRDIR</code> folder.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ Fans are stuck at 100% or the PS3 shuts down</summary>
+                    <p><strong>Solution</strong>: Go to <code>/setup.ps3</code>, select <strong>SYSCON</strong>, save, and restart the console. If the problem persists, delete the <code>/dev_hdd0/tmp/wm_config.bin</code> file and restart.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ NPS Browser doesn't find games</summary>
+                    <p><strong>Solution</strong>: Check that the TSV URLs are correctly entered and that you have clicked <strong>"Sync now"</strong> in the options. Make sure your firewall is not blocking NPS Browser.</p>
+                </details>
+
+                <details class="faq">
+                    <summary>❌ pkg2zip fails to extract</summary>
+                    <p><strong>Solution</strong>: Check that the path to <code>pkg2zip.exe</code> is correct in the options and that the parameters are <code>-x {pkgFile} "{zRifKey}"</code>.</p>
+                </details>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- CUSTOM FIRMWARE TOOLS — Detailed Sections                -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+
+            <section id="cft" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 21</span>
+                    <h2>⚙️ Options Guide: "Custom Firmware Tools" Menu (Cobra 8.5)</h2>
+                </div>
+                <p>This menu, accessible from the <strong>Network</strong> column of the XMB, is the control center of your CFW Evilnat. It gathers all advanced tools to manage, customize, and diagnose your PS3. Here is the detail of each option, classified by category.</p>
+            </section>
+
+            <section id="cft-power" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Power</span>
+                    <h2>⏻ Power Options</h2>
+                </div>
+                <p>This submenu allows you to control the state of the console.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Turn Off</strong></td><td>Turns off the PS3.</td><td>For a clean shutdown.</td><td>Alternative to the power button.</td></tr>
+                            <tr><td><strong>Hard Reboot</strong></td><td>Completely restarts the PS3 (like a power cycle).</td><td>After a deep system modification.</td><td>Forces a full hardware restart.</td></tr>
+                            <tr><td><strong>Soft Reboot</strong></td><td>Restarts the PS3 in software (faster).</td><td>To apply CFW changes.</td><td>Faster than a complete restart.</td></tr>
+                            <tr><td><strong>Reboot LV2</strong></td><td>Restarts only the LV2 kernel (low level).</td><td>To test low-level changes.</td><td>Ultra-fast restart for developers.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-filemanager" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · File Manager</span>
+                    <h2>📁 File Manager</h2>
+                </div>
+                <p>A built-in file explorer to navigate and manage files directly on the PS3.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Internal Hard Disk Drive 0</strong></td><td>Manages files in <code>/dev_hdd0</code> (main drive).</td><td>To organize your games, saves, etc.</td><td>Avoids going through a PC.</td></tr>
+                            <tr><td><strong>Internal Hard Disk Drive 1</strong></td><td>Manages files in <code>/dev_hdd1</code> (disk cache).</td><td>To clean the cache.</td><td>Useful for freeing space.</td></tr>
+                            <tr><td><strong>Internal Flash Memory</strong></td><td>Manages files in the internal flash memory.</td><td><strong>Experts only.</strong></td><td>Access to critical system files.</td></tr>
+                            <tr><td><strong>Optical Disc</strong></td><td>Manages files on the inserted optical disc.</td><td>To explore the contents of a disc.</td><td>Rarely used.</td></tr>
+                            <tr><td><strong>USB Mass Storage Devices</strong></td><td>Manages files on your USB devices.</td><td>To copy files from/to USB.</td><td>Practical without FTP.</td></tr>
+                            <tr><td><strong>Memory Cards</strong></td><td>Manages files on memory cards (adapter).</td><td>If you use PS1/PS2 memory cards.</td><td>For retro saves.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-overclock" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Overclock</span>
+                    <h2>🚀 Overclock Tools</h2>
+                </div>
+                <p>This submenu allows you to increase the frequencies of the graphics processor (RSX) to improve in-game performance. <strong>Use with extreme caution.</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>RSX Core Clock</strong></td><td>Increases the RSX core frequency (in 50 MHz steps).</td><td>If a game is GPU-limited.</td><td>Fluidity gain.</td></tr>
+                            <tr><td><strong>RSX Memory Clock</strong></td><td>Increases the RSX memory frequency (in 25 MHz steps).</td><td>If textures load slowly.</td><td>Improves memory bandwidth.</td></tr>
+                            <tr><td><strong>Check GPU/VRAM clock speed</strong></td><td>Displays the current RSX frequencies.</td><td>Before and after an overclock.</td><td>To verify the OC is applied.</td></tr>
+                            <tr><td><strong>Default Frequencies</strong></td><td>Resets the RSX to factory frequencies (500/650 MHz).</td><td>In case of instability.</td><td>Return to a safe state.</td></tr>
+                            <tr><td><strong>Custom Values</strong></td><td>Allows you to choose preset frequencies (e.g.: 600/750, 700/850 MHz).</td><td>For a balanced and tested OC.</td><td>Avoids entering values manually.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: For a persistent overclock at startup, create an <code>overclock.txt</code> file at the root of a USB drive or the internal drive (<code>/dev_hdd0/</code>) with the desired frequencies (e.g.: <code>700</code> then <code>850</code> on two lines). Cobra will read this file at boot.
+                </blockquote>
+                <blockquote class="callout callout--danger">
+                    ⚠️ <strong>Warning</strong>: Overclocking increases heat and power consumption. Make sure your PS3 is well cooled (recent thermal paste, working fan). Too high an OC can cause freezes, graphical artifacts, or even damage the console.
+                </blockquote>
+            </section>
+
+            <section id="cft-basic" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Basic</span>
+                    <h2>🛠️ Basic Tools</h2>
+                </div>
+                <p>A collection of miscellaneous tools for information and maintenance.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Total PS3 Usage</strong></td><td>Displays the total operating time and number of power cycles.</td><td>To know the console's wear.</td><td>Information for buying/selling.</td></tr>
+                            <tr><td><strong>Show IDs</strong></td><td>Displays IDPS, PSID, IP address, and MAC address.</td><td>For network troubleshooting or spoofing.</td><td>Retrieving system identifiers.</td></tr>
+                            <tr><td><strong>Fix CBOMB</strong></td><td>Fixes the RTC clock if the CMOS battery is dead.</td><td>If the PS3 shows an incorrect date.</td><td>Avoids certificate errors.</td></tr>
+                            <tr><td><strong>Toggle DLNA</strong></td><td>Enables/disables DLNA media sharing.</td><td>To stream from a PC.</td><td>Quick activation of the media server.</td></tr>
+                            <tr><td><strong>Toggle Third Party BT Headset</strong></td><td>Enables/disables the use of third-party Bluetooth headsets.</td><td>If your headset isn't recognized.</td><td>Extended compatibility.</td></tr>
+                            <tr><td><strong>Decrypt 3k3y/Redump ISOs (HDD/USB)</strong></td><td>Decrypts PS3 game ISOs copied from a disc.</td><td>If you have encrypted ISOs.</td><td>Allows launching them.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Basic Tools &gt; xRegistry Tools</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Region Info</strong></td><td>Displays the current Blu-ray/DVD drive region.</td><td>Before changing region.</td><td>Checking the configuration.</td></tr>
+                            <tr><td><strong>DVD TV System</strong></td><td>Switches between PAL and NTSC for DVDs.</td><td>If a DVD doesn't display properly.</td><td>Video compatibility.</td></tr>
+                            <tr><td><strong>Backup xRegistry.sys</strong></td><td>Backs up the system registry file.</td><td>Before any risky modification.</td><td>Restoration in case of problems.</td></tr>
+                            <tr><td><strong>Button Assignment</strong></td><td>Swaps the O and X buttons.</td><td>For players used to the Japanese layout.</td><td>Gaming comfort.</td></tr>
+                            <tr><td><strong>Region Tools</strong></td><td>Changes the drive region (Japan, USA, Europe, etc.).</td><td>To read discs from other regions.</td><td>Region unlocking.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-fan" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · FAN</span>
+                    <h2>🌡️ FAN Tools</h2>
+                </div>
+                <p>Fine control of ventilation to protect your console.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Temperature Information</strong></td><td>Displays CPU/RSX temperatures, fan speed, and current mode.</td><td>To monitor the console's health.</td><td>Real-time diagnostics.</td></tr>
+                            <tr><td><strong>Control FAN Mode: DISABLED</strong></td><td>Disables fan control by Cobra.</td><td>Rarely.</td><td>Let the system manage.</td></tr>
+                            <tr><td><strong>Control FAN Mode: SYSCON</strong></td><td>The SYSCON controller manages ventilation automatically.</td><td>Normal use.</td><td>Safest and most stable.</td></tr>
+                            <tr><td><strong>Control FAN Mode: MAX</strong></td><td>Forces the fan to 100%.</td><td>In case of extreme overheating.</td><td>Maximum cooling (very noisy).</td></tr>
+                            <tr><td><strong>Dynamic FAN Control</strong></td><td>Adjusts speed to maintain a target temperature (60°C, 65°C, 70°C, 75°C).</td><td>For a good noise/cooling compromise.</td><td>Automatic protection.</td></tr>
+                            <tr><td><strong>Manual Speed</strong></td><td>Sets fan speed to a constant percentage (40% to 95%).</td><td>If you prefer constant noise.</td><td>Total control.</td></tr>
+                            <tr><td><strong>PS2 FAN Mode</strong></td><td>Sets fan speed for PS2 games (DISABLED, SYSCON, 40% to 90%).</td><td>If your PS2 games make the console hot.</td><td>Dedicated cooling.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Warning</strong>: In PS2 mode, there is no dynamic control. Choose a fixed speed with discretion. Too low a speed can cause overheating.
+                </blockquote>
+            </section>
+
+            <section id="cft-qa" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · QA</span>
+                    <h2>🛡️ QA Tools</h2>
+                </div>
+                <p>QA Flags are development flags required for certain advanced operations.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Check QA Flags</strong></td><td>Checks whether QA Flags are enabled or disabled.</td><td>Before a downgrade.</td><td>Status check.</td></tr>
+                            <tr><td><strong>Enable QA Flags (Normal)</strong></td><td>Enables QA Flags via network settings.</td><td>To allow a downgrade.</td><td>Unlocks system options.</td></tr>
+                            <tr><td><strong>Enable QA Flags (Advanced)</strong></td><td>Enables advanced QA Flags.</td><td>For more advanced operations.</td><td>Access to more options.</td></tr>
+                            <tr><td><strong>Disable QA Flags</strong></td><td>Disables QA Flags.</td><td>After finishing.</td><td>Return to a "clean" state.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-cobra" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Cobra</span>
+                    <h2>🐍 Cobra Tools</h2>
+                </div>
+                <p>Options specific to the Cobra payload.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Cobra Information</strong></td><td>Displays the Cobra version and syscall 8 status.</td><td>To verify Cobra is active.</td><td>Diagnostics.</td></tr>
+                            <tr><td><strong>Toggle Plugins</strong></td><td>Enables/disables Cobra plugins (<code>boot_plugins.txt</code>).</td><td>If a plugin causes instability.</td><td>Problem isolation.</td></tr>
+                            <tr><td><strong>Toggle Gameboot</strong></td><td>Enables/disables the game boot animation.</td><td>For faster startup.</td><td>Time saving.</td></tr>
+                            <tr><td><strong>Toggle Coldboot</strong></td><td>Switches between the custom boot animation and the original.</td><td>If you have a custom coldboot.</td><td>Customization.</td></tr>
+                            <tr><td><strong>Toggle Coldboot Animation</strong></td><td>Completely enables/disables the boot animation and sound.</td><td>For a silent boot.</td><td>Discretion.</td></tr>
+                            <tr><td><strong>Toggle XMB Waves</strong></td><td>Enables/disables the XMB animated waves (FW 2.70).</td><td>For a more sober interface.</td><td>Aesthetic preference.</td></tr>
+                            <tr><td><strong>Toggle External Cobra</strong></td><td>Enables/disables loading of external Cobra payloads from USB.</td><td>If you use USB plugins.</td><td>Security.</td></tr>
+                            <tr><td><strong>Toggle OFW Mode on Boot</strong></td><td>Controls the state of CFW syscalls at boot (enabled, disabled, partial).</td><td>To boot in "close to OFW" mode.</td><td>Avoid PSN ban risks.</td></tr>
+                            <tr><td><strong>Toggle Cobra Version</strong></td><td>Switches between release (stable) and debug versions.</td><td>For advanced debugging.</td><td>Additional logs. <strong>Restart required.</strong></td></tr>
+                            <tr><td><strong>Toggle Cobra</strong></td><td>Completely enables/disables the Cobra payload.</td><td>In case of compatibility issues.</td><td>Diagnostics. <strong>Restart required.</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-psn" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · PSN</span>
+                    <h2>🌐 PSN Tools</h2>
+                </div>
+                <p>Tools related to PlayStation Network and account activation.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Disable Syscalls</strong></td><td>Disables CFW syscalls and deletes history files.</td><td>Before connecting to PSN.</td><td>Reduce ban risk.</td></tr>
+                            <tr><td><strong>Create Syscalls</strong></td><td>Creates CFW syscalls (6, 7, 8, 9, 10, 11, 15, 35).</td><td>After disabling them.</td><td>Re-enable CFW features.</td></tr>
+                            <tr><td><strong>Toggle PSN Protection</strong></td><td>Enables/disables PSN connection blocking when syscalls are active.</td><td>To avoid accidental connections.</td><td>Security.</td></tr>
+                            <tr><td><strong>Spoof TargetID</strong></td><td>Spoofs the console's TargetID with another one.</td><td>To bypass certain restrictions.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Spoof IDPS</strong></td><td>Spoofs the IDPS from an <code>IDPS.txt</code> file on USB.</td><td>For spoofing.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Spoof PSID</strong></td><td>Spoofs the PSID from a <code>PSID.txt</code> file on USB.</td><td>For spoofing.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Spoof MAC</strong></td><td>Spoofs the MAC address from a <code>MAC.txt</code> file on USB.</td><td>For network spoofing.</td><td>Advanced.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>PSN Tools &gt; Account Tools</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show accountID</strong></td><td>Displays the current user's accountID.</td><td>To verify activation.</td><td>Information.</td></tr>
+                            <tr><td><strong>Create accountID</strong></td><td>Creates a fake accountID.</td><td>For offline activation.</td><td>Bypass.</td></tr>
+                            <tr><td><strong>Overwrite accountID</strong></td><td>Overwrites the current accountID with a fake one.</td><td>To change identity.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Remove accountID</strong></td><td>Removes the current accountID.</td><td>To reset.</td><td>Cleanup.</td></tr>
+                            <tr><td><strong>Activate account</strong></td><td>Creates the <code>act.dat</code> file to activate the local account.</td><td>To activate PSN content.</td><td>Essential for PSN games.</td></tr>
+                            <tr><td><strong>Backup activation file</strong></td><td>Backs up the <code>act.dat</code> file to USB or HDD.</td><td>Before a modification.</td><td>Security.</td></tr>
+                            <tr><td><strong>Disable account</strong></td><td>Permanently deletes the <code>act.dat</code> file.</td><td>To deactivate the account.</td><td><strong>Irreversible.</strong></td></tr>
+                            <tr><td><strong>Create license</strong></td><td>Creates RIF licenses from RAP files in <code>exdata</code>.</td><td>To activate PSN games.</td><td>Essential.</td></tr>
+                            <tr><td><strong>Import Licenses to rap.bin</strong></td><td>Imports RAP licenses into a <code>rap.bin</code> file.</td><td>To group licenses.</td><td>Organization.</td></tr>
+                            <tr><td><strong>Export Licenses from rap.bin</strong></td><td>Exports RAP licenses from <code>rap.bin</code>.</td><td>To restore them.</td><td>Restoration.</td></tr>
+                            <tr><td><strong>Convert savedata</strong></td><td>Converts saves from another user to your account.</td><td>To use downloaded saves.</td><td>Compatibility.</td></tr>
+                            <tr><td><strong>Toggle TrophyUnlocker</strong></td><td>Enables/disables the trophy unlocking plugin.</td><td>To manage trophies.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Toggle Hidden Trophy Info</strong></td><td>Displays details of hidden trophies.</td><td>To see secret trophies.</td><td>Information.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-dump" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Dump</span>
+                    <h2>📤 Dump Tools</h2>
+                </div>
+                <p>Tools to extract system data for diagnostic or backup purposes.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>View Log</strong></td><td>Opens the CFW settings log file via webMAN MOD.</td><td>To consult the action history.</td><td>Diagnostics.</td></tr>
+                            <tr><td><strong>Clean Log File</strong></td><td>Resets the log file.</td><td>To start fresh.</td><td>Cleanup.</td></tr>
+                            <tr><td><strong>Dump IDs</strong></td><td>Backs up IDPS, PSID, MAC, and <code>act.dat</code>.</td><td>To save your identifiers.</td><td>Security.</td></tr>
+                            <tr><td><strong>Export RAP license</strong></td><td>Exports RAP licenses from installed RIFs.</td><td>To back up your licenses.</td><td>Security.</td></tr>
+                            <tr><td><strong>Dump LV2 / LV1</strong></td><td>Backs up the LV2 or LV1 kernel.</td><td>For advanced debugging.</td><td>Developers.</td></tr>
+                            <tr><td><strong>Dump Flash</strong></td><td>Backs up the NOR/NAND flash memory.</td><td><strong>Before a risky operation.</strong></td><td>Safety backup.</td></tr>
+                            <tr><td><strong>Dump RAM</strong></td><td>Backs up RAM memory.</td><td>For debugging.</td><td>Developers.</td></tr>
+                            <tr><td><strong>Dump SYSROM</strong></td><td>Backs up the SYSROM.</td><td>For debugging.</td><td>Developers.</td></tr>
+                            <tr><td><strong>Dump EEPROM</strong></td><td>Backs up 256 bytes of the EEPROM.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Dump ERK</strong></td><td>Backs up the <code>eid_root_key</code> root key.</td><td><strong>Very important for advanced operations.</strong></td><td>Needed for Blu-ray drive remarrying, etc.</td></tr>
+                            <tr><td><strong>Dump METLDR</strong></td><td>Backs up the decrypted metldr.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Dump SYSCON Error Log</strong></td><td>Backs up the SYSCON error log.</td><td>In case of hardware problems.</td><td>Diagnostics.</td></tr>
+                            <tr><td><strong>Dump Token Seed</strong></td><td>Backs up the token seed.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Log KLicense usage</strong></td><td>Logs klicensee usage.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Log Secure File ID usage</strong></td><td>Logs secure file IDs.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Dump Disc Hash Key</strong></td><td>Retrieves the hash key of an original disc.</td><td>For disc dumping.</td><td>Advanced.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-cexdex" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · CEX/DEX</span>
+                    <h2>🔄 CEX2DEX Tools</h2>
+                </div>
+                <p>Tools to convert your PS3 between CEX (retail) and DEX (debug) modes.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Information</strong></td><td>Displays firmware, kernel, TargetID, etc.</td><td>To know the current state.</td><td>Information.</td></tr>
+                            <tr><td><strong>Check TargetID</strong></td><td>Checks the current TargetID.</td><td>Before a conversion.</td><td>Prerequisite.</td></tr>
+                            <tr><td><strong>Convert to CEX</strong></td><td>Converts the PS3 to CEX mode (retail).</td><td>To return to standard mode.</td><td>Compatibility.</td></tr>
+                            <tr><td><strong>Convert to DEX</strong></td><td>Converts the PS3 to DEX mode (debug).</td><td>For development.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Swap Kernel</strong></td><td>Switches between CEX and DEX kernels.</td><td>After a conversion.</td><td>Finalization.</td></tr>
+                            <tr><td><strong>Toggle XMB Mode</strong></td><td>Switches the XMB interface between CEX and DEX.</td><td>To change the appearance.</td><td>Preference.</td></tr>
+                            <tr><td><strong>Toggle Debug Settings</strong></td><td>Enables/disables debug settings.</td><td>For developers.</td><td>Advanced.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-rebug" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Rebug</span>
+                    <h2>🧰 Rebug Tools</h2>
+                </div>
+                <p>These options enable low-level patches inherited from the Rebug CFW. <strong>Reserved for very advanced users.</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>LV1 Peek/Poke Support</strong></td><td>Enables LV1 read/write system calls.</td><td>For kernel debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>LV2 Memory Protection</strong></td><td>Disables LV2 memory protection.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>HTAB Mapping With Write Protection</strong></td><td>Enables HTAB write protection.</td><td>For stability.</td><td>Security.</td></tr>
+                            <tr><td><strong>Access to all INDI Info Manager Services</strong></td><td>Enables full access to the INDI manager.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Update Manager EEPROM Write Access</strong></td><td>Enables EEPROM writing via the Update Manager.</td><td>For developers.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Dispatch Manager Access</strong></td><td>Enables full access to the Dispatch Manager.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Allow ENCDEC IOCTL Command 0x85</strong></td><td>Enables IOCTL command 0x85.</td><td>For decryption.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>System Manager Ability Mask of GameOS</strong></td><td>Enables full access to the System Manager.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Extract all PKG Types</strong></td><td>Allows extraction of all PKG types.</td><td>For PKG analysis.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Full Access for Repo Nodes in Any LPAR</strong></td><td>Enables full access to repository nodes.</td><td>For development.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>LV1 Full Access to MFC_SR1 SPE Register</strong></td><td>Enables full access to the SPE register.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>LV1 Access to set Data Break Points</strong></td><td>Enables LV1 data breakpoints.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>LV1 Access to GPU GART Memory</strong></td><td>Enables LV1 access to GPU GART memory.</td><td>For graphics debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Storage Manager ENCDEC Keys Access</strong></td><td>Allows erasing ENCDEC keys.</td><td>For decryption.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Skip all ACL Checks</strong></td><td>Disables all ACL checks.</td><td>For bypassing.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Initial GuestOS Loader</strong></td><td>Enables GuestOS 1 mode for GameOS.</td><td>For OtherOS.</td><td>Advanced.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-otheros" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · OtherOS</span>
+                    <h2>💻 OtherOS Tools</h2>
+                </div>
+                <p>Tools to install and manage an alternative operating system (Linux) on PS3.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Install OtherOS</strong></td><td>Resizes VFLASH/NAND regions and installs Petitboot.</td><td>To install Linux.</td><td>Prerequisite.</td></tr>
+                            <tr><td><strong>Set OtherOS Boot Flag</strong></td><td>Restarts the PS3 and boots to OtherOS.</td><td>To launch Linux.</td><td>Switch.</td></tr>
+                            <tr><td><strong>Set GameOS Boot Flag</strong></td><td>Resets the boot flag for GameOS.</td><td>To return to the PS3.</td><td>PS2 bug fix.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-service" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Service</span>
+                    <h2>🛠️ Service Tools</h2>
+                </div>
+                <p>Maintenance and repair tools.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Display Applicable Version</strong></td><td>Displays the minimum downgrade version possible.</td><td>Before a downgrade.</td><td>Information.</td></tr>
+                            <tr><td><strong>Show BD Drive Information</strong></td><td>Displays Blu-ray drive information.</td><td>For diagnostics.</td><td>Information.</td></tr>
+                            <tr><td><strong>Check File System</strong></td><td>Restarts and runs a file system check/repair.</td><td>In case of corruption.</td><td>Repair.</td></tr>
+                            <tr><td><strong>Rebuild Database</strong></td><td>Restarts with the database rebuild option.</td><td>If the XMB is slow or crashes.</td><td>Maintenance.</td></tr>
+                            <tr><td><strong>Toggle Recovery Mode</strong></td><td>Restarts into Recovery Mode.</td><td>For maintenance operations.</td><td>Access to Recovery menu. <strong>Not supported on NAND models.</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Service Tools &gt; Advanced Service Tools</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>RSOD fix</strong></td><td>Resets the VTRM region to attempt to fix an RSOD.</td><td>In case of red screen.</td><td>Repair.</td></tr>
+                            <tr><td><strong>Toggle Factory Service Mode</strong></td><td>Enters/exits Factory Service mode.</td><td>For drive remarrying.</td><td>Advanced. <strong>Do not install CFW in FSM.</strong></td></tr>
+                            <tr><td><strong>Remarry Bluray Drive</strong></td><td>Remarries the Blu-ray drive to the motherboard.</td><td>After a drive replacement.</td><td>Repair.</td></tr>
+                            <tr><td><strong>Toggle HDD Space</strong></td><td>Unlocks 8% additional space on the internal drive.</td><td>To save space.</td><td>Optimization.</td></tr>
+                            <tr><td><strong>Show ROS Bank</strong></td><td>Displays the active ROS bank.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Check 8th SPE</strong></td><td>Checks if the 8th SPE is enabled.</td><td>For diagnostics.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Toggle 8th SPE</strong></td><td>Enables/disables the 8th SPE.</td><td>For debugging.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Enable VSH Debugging</strong></td><td>Enables VSH debugging.</td><td>For developers.</td><td>Advanced.</td></tr>
+                            <tr><td><strong>Load LV2 kernel</strong></td><td>Loads a custom LV2 kernel.</td><td>For development.</td><td>Advanced.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-led" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Led</span>
+                    <h2>💡 Led Tools</h2>
+                </div>
+                <p>Allows you to control the console's LED.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Off</strong></td><td>Turns the LED off.</td><td>For discretion.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Red (Static)</strong></td><td>Steady red LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Green (Static)</strong></td><td>Steady green LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow (Static)</strong></td><td>Steady yellow LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Red (Slow blink)</strong></td><td>Slow blinking red LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Green (Slow blink)</strong></td><td>Slow blinking green LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow (Slow blink)</strong></td><td>Slow blinking yellow LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Red (Fast blink)</strong></td><td>Fast blinking red LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Green (Fast blink)</strong></td><td>Fast blinking green LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow (Fast blink)</strong></td><td>Fast blinking yellow LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow + Green (Fast blink)</strong></td><td>Fast blinking yellow + green LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow + Red (Fast blink)</strong></td><td>Fast blinking yellow + red LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow + Green (Slow blink)</strong></td><td>Slow blinking yellow + green LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Yellow + Red (Slow blink)</strong></td><td>Slow blinking yellow + red LED.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Rainbow Mode</strong></td><td>Rainbow LED mode.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                            <tr><td><strong>Special Mode 1 / 2</strong></td><td>Special LED modes.</td><td>For a custom look.</td><td>Aesthetics.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-updates" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Updates</span>
+                    <h2>⬆️ Updates</h2>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>What Is It For?</th><th>When to Use It?</th><th>Why?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show XAI Version</strong></td><td>Displays the current XAI plugin version.</td><td>To verify.</td><td>Information.</td></tr>
+                            <tr><td><strong>xai_plugin</strong></td><td>Downloads the latest XAI plugin version.</td><td>To stay up to date.</td><td>New features.</td></tr>
+                            <tr><td><strong>CFW 4.93 Fixes</strong></td><td>Downloads fixes for CFW 4.93 modules.</td><td>To fix bugs.</td><td>Stability.</td></tr>
+                            <tr><td><strong>PS2 EMUs Cobra</strong></td><td>Downloads the latest Cobra PS1/PS2 emulator version.</td><td>To improve compatibility.</td><td>Updates.</td></tr>
+                            <tr><td><strong>PS2 EMUs MOD</strong></td><td>Downloads the latest modded emulator version (by mrjaredbeta and kozarovv).</td><td>For maximum compatibility.</td><td>Community improvements.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- END CUSTOM FIRMWARE TOOLS                                -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+
+            <section id="overclock" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 22</span>
+                    <h2>🚀 RSX Overclocking with Cobra 8.5 (Specific)</h2>
+                </div>
+                <p>Cobra 8.5 introduces a new RSX overclocking method that can be applied <strong>at console startup</strong>.</p>
+
+                <h3>📝 <code>overclock.txt</code> File</h3>
+                <p>To persistently overclock the RSX, create a file named <code>overclock.txt</code> and place it at the root of a USB drive <strong>or</strong> on the internal drive (<code>/dev_hdd0/</code>).</p>
+                <p><strong>File contents:</strong></p>
+                <pre><code>700
+850</code></pre>
+                <ul>
+                    <li>The first line is the <strong>Core</strong> frequency in MHz.</li>
+                    <li>The second line is the <strong>Memory</strong> frequency in MHz.</li>
+                </ul>
+                <p><strong>Supported frequencies:</strong></p>
+                <ul>
+                    <li><strong>Core</strong>: 300 MHz to 1050 MHz (in 50 MHz "steps").</li>
+                    <li><strong>Memory</strong>: 300 MHz to 1050 MHz (in 25 MHz "steps").</li>
+                </ul>
+                <blockquote class="callout callout--danger">
+                    ⚠️ <strong>Warning</strong>: Too high an overclock can cause instability, freezes, graphical artifacts, or even damage the RSX. Test progressively and monitor temperatures. If the console doesn't boot, remove the <code>overclock.txt</code> file.
+                </blockquote>
+            </section>
+
+            <section id="pas-frequence" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Chapter 23</span>
+                    <h2>📐 Understanding Frequency "Steps" (Core and Memory) of the RSX</h2>
+                </div>
+                <p>When you overclock your PS3's RSX via Cobra 8.5, you cannot choose any frequency. Each component (Core and Memory) has a <strong>step</strong>, that is, the minimum increment between two allowed values. Any value that does not respect this step will be <strong>ignored</strong> or <strong>rounded</strong> by Cobra.</p>
+
+                <h3>🎯 Core (RSX Core)</h3>
+                <ul>
+                    <li><strong>Original value (stock)</strong>: 500 MHz</li>
+                    <li><strong>Step</strong>: 50 MHz</li>
+                    <li><strong>Range</strong>: 300 MHz to 1050 MHz</li>
+                </ul>
+                <p>This means the only allowed values for the Core are:</p>
+                <pre><code>300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050</code></pre>
+                <p>Each value is spaced exactly <strong>50 MHz</strong> apart. You <strong>cannot</strong> enter <code>575</code> or <code>625</code>, as they are not multiples of 50.</p>
+
+                <h3>🎯 Memory (RSX Memory)</h3>
+                <ul>
+                    <li><strong>Original value (stock)</strong>: 650 MHz</li>
+                    <li><strong>Step</strong>: 25 MHz</li>
+                    <li><strong>Range</strong>: 300 MHz to 1050 MHz</li>
+                </ul>
+                <p>This means the only allowed values for the Memory are:</p>
+                <pre><code>300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650,
+675, 700, 725, 750, 775, 800, 825, 850, 875, 900, 925, 950, 975, 1000, 1025, 1050</code></pre>
+                <p>Each value is spaced exactly <strong>25 MHz</strong> apart. It is a finer step than for the Core, allowing for more precise tuning.</p>
+
+                <h3>💡 Why Different Steps?</h3>
+                <p>The <strong>Core</strong> and <strong>Memory</strong> of the RSX are two distinct components with their own hardware constraints (frequency multipliers, internal PLL, etc.). The Core is tuned in large increments (50 MHz), while the Memory tolerates finer adjustments (25 MHz). This is a physical limitation of the hardware, not an arbitrary choice.</p>
+
+                <h3>⚠️ Invalid Values: What Happens?</h3>
+                <p>If you enter a value that does not respect the step, Cobra will ignore it or round it to the nearest valid value. Example:</p>
+                <pre><code>725   &lt;- invalid for the Core (not a multiple of 50)
+875   &lt;- valid for the Memory (multiple of 25)</code></pre>
+                <p>In this case, <code>725</code> for the Core will probably be rounded to <code>700</code> or <code>750</code>, and <code>875</code> for the Memory will be accepted as is.</p>
+
+                <h3>🎯 Examples of Valid Configurations</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Configuration</th><th>Core</th><th>Memory</th><th>Valid?</th></tr></thead>
+                        <tbody>
+                            <tr><td>Stock</td><td>500</td><td>650</td><td>✅</td></tr>
+                            <tr><td>Light OC</td><td>550</td><td>700</td><td>✅</td></tr>
+                            <tr><td>Medium OC</td><td>600</td><td>750</td><td>✅</td></tr>
+                            <tr><td>Heavy OC</td><td>700</td><td>850</td><td>✅</td></tr>
+                            <tr><td>Extreme OC</td><td>800</td><td>900</td><td>✅</td></tr>
+                            <tr><td>Invalid</td><td>575</td><td>825</td><td>❌ (575 is not a multiple of 50)</td></tr>
+                            <tr><td>Invalid</td><td>600</td><td>810</td><td>❌ (810 is not a multiple of 25)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>📌 In Summary</h3>
+                <ul>
+                    <li><strong>"In 50 MHz steps"</strong>: you can only choose values spaced 50 apart (300, 350, 400, etc.).</li>
+                    <li><strong>"In 25 MHz steps"</strong>: you can only choose values spaced 25 apart (300, 325, 350, etc.).</li>
+                    <li>Any value that does not respect this step will be <strong>ignored</strong> or <strong>rounded</strong> by Cobra.</li>
+                    <li>Respecting these steps is <strong>mandatory</strong> for your overclocking to be applied correctly.</li>
+                </ul>
+            </section>
+
+            <!-- ============ USEFUL RESOURCES ============ -->
+            <section id="ressources" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Appendix A</span>
+                    <h2>🔗 Useful Resources</h2>
+                </div>
+                <p>Here is a list of reference sites and tools for PS3, organized by theme.</p>
+
+                <h3>💾 Firmwares &amp; System</h3>
+                <div class="table-wrap table-wrap--compact">
+                    <table class="table--compact">
+                        <thead>
+                            <tr><th>Resource</th><th>Link</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Darthsternie's Firmware Archive</strong></td>
+                                <td><a href="https://darthsternie.net/ps3-firmwares/" target="_blank" rel="noopener">darthsternie.net/ps3-firmwares</a></td>
+                                <td>A very complete archive of official and custom (CFW) PS3 firmwares, from version 3.41 up to the most recent. Essential for finding a specific firmware or for downgrading.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aldostools - PS3 Portal</strong></td>
+                                <td><a href="http://ps3.aldostools.org/" target="_blank" rel="noopener">ps3.aldostools.org</a></td>
+                                <td>Aldostools' main portal gathering many tools and databases for the PS3, including links to game databases, updates, and utilities.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🗄️ Databases &amp; Identifiers</h3>
+                <div class="table-wrap table-wrap--compact">
+                    <table class="table--compact">
+                        <thead>
+                            <tr><th>Resource</th><th>Link</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aldostools - Title ID Database</strong></td>
+                                <td><a href="http://ps3.aldostools.org/titleid.html" target="_blank" rel="noopener">ps3.aldostools.org/titleid.html</a></td>
+                                <td>Database for searching a PS3 game's Title ID. Useful for finding corresponding updates or license files.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GameTDB (PS3)</strong></td>
+                                <td><a href="https://www.gametdb.com/PS3" target="_blank" rel="noopener">gametdb.com/PS3</a></td>
+                                <td>Community PS3 game database. Provides detailed information (ID, titles, covers) and allows contributing to the database.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PS3-ID (Forums)</strong></td>
+                                <td><a href="https://www.ps3-id.com/forums/playstation-3.192/" target="_blank" rel="noopener">ps3-id.com/forums/playstation-3.192</a></td>
+                                <td>Spanish-language discussion forum dedicated to PS3, with sections on CFW, hardware, and identifier exchanges. <em>Note: the site's reputation is mixed.</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>SerialStation (PS3)</strong></td>
+                                <td><a href="https://serialstation.com/search/?search=ps3#title-ids" target="_blank" rel="noopener">serialstation.com (PS3)</a></td>
+                                <td>Database specializing in PlayStation game identifiers (Title IDs). Allows searching by console, region, and edition.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RenaScene (PS3)</strong></td>
+                                <td><a href="https://renascene.com/ps3" target="_blank" rel="noopener">renascene.com/ps3</a></td>
+                                <td>"Scene releases" database for PSP/PS3/3DS, including PSOne Classics and PS Vita games. Often used to verify ISO CRCs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>📥 Game Downloads &amp; Updates</h3>
+                <div class="table-wrap table-wrap--compact">
+                    <table class="table--compact">
+                        <thead>
+                            <tr><th>Resource</th><th>Link</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>NoPayStation</strong></td>
+                                <td><a href="https://nopaystation.com/" target="_blank" rel="noopener">nopaystation.com</a></td>
+                                <td>The most complete repository of PKG download links for PS3, PSP, and PS Vita. Includes games, DLCs, themes, and updates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DLPSGame (PS3)</strong></td>
+                                <td><a href="https://dlpsgame.com/category/ps3/" target="_blank" rel="noopener">dlpsgame.com/category/ps3</a></td>
+                                <td>Site offering PS3 game downloads in ISO or JB folder format, often with DLCs and patches included.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Disdex.io (Servers)</strong></td>
+                                <td><a href="https://disdex.io/servers" target="_blank" rel="noopener">disdex.io/servers</a></td>
+                                <td>Tool to check the status of download servers (like those of NoPayStation) to know whether they are online or not.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🎨 Themes &amp; Customization</h3>
+                <div class="table-wrap table-wrap--compact">
+                    <table class="table--compact">
+                        <thead>
+                            <tr><th>Resource</th><th>Link</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>BestPS3Themes - Tutorial</strong></td>
+                                <td><a href="https://bestps3themes.com/create-ps3-themes-tutorial/" target="_blank" rel="noopener">bestps3themes.com/tutorial</a></td>
+                                <td>Step-by-step guide to create your own PS3 themes using the "PS3 Theme Builder" and the p3t compiler.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Themezer (PS3)</strong></td>
+                                <td><a href="https://themezer.net/" target="_blank" rel="noopener">themezer.net</a></td>
+                                <td>Community theme-sharing platform for PS3 (and Switch). Allows downloading .p3t themes and uploading them.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="runtimes" class="section">
+                <div class="section-header">
+                    <span class="section-badge">Appendix B</span>
+                    <h2>📦 Required Runtimes</h2>
+                </div>
+                <p>Some tools presented in this guide (PS Multi Tools, PS3 Tools Collection, etc.) require the installation of additional runtimes on Windows.</p>
+                <div class="table-wrap table-wrap--compact">
+                    <table class="table--compact">
+                        <thead>
+                            <tr><th>Runtime</th><th>File</th><th>Link</th><th>Used By</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>.NET Desktop Runtime 9.0</strong></td>
+                                <td><code>windowsdesktop-runtime-9.0.20-win-x64.exe</code></td>
+                                <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0" target="_blank" rel="noopener">Download</a></td>
+                                <td>PS Multi Tools v16.2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>.NET Desktop Runtime 6.0</strong></td>
+                                <td><code>windowsdesktop-runtime-6.0.36-win-x64.exe</code></td>
+                                <td><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" rel="noopener">Download</a></td>
+                                <td>PS3 Tools Collection (Aldostools), other tools</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visual Basic 5.0 Runtime</strong></td>
+                                <td><code>Msvbvm50.exe</code></td>
+                                <td><a href="http://download.microsoft.com/download/vb50pro/utility/1/win98/EN-US/Msvbvm50.exe" target="_blank" rel="noopener">Download</a></td>
+                                <td>PS3 Tools Collection (Aldostools)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Tip</strong>: Install these runtimes <strong>before</strong> launching the tools in question. If Windows asks you for a missing <code>.dll</code> file (like <code>msvbvm50.dll</code>), it means the corresponding runtime is not installed.
+                </blockquote>
+            </section>
+
+        </main>
+
+    </div><!-- /.layout -->
+
+    <footer class="footer">
+        <p>🎮 Guide created for optimal use with <strong>CFW Evilnat 4.93</strong>, <strong>webMAN MOD 1.47.48t</strong>, and <strong>NPS Browser</strong>.</p>
+        <p class="footer-sign">By LvSs7… And you…</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+    <div id="searchPanel" class="search-panel" aria-hidden="true">
+        <div class="search-panel__inner">
+            <div class="search-panel__header">
+                <span class="search-panel__icon">🔍</span>
+                <input type="text" id="searchInput" class="search-panel__input" placeholder="Search the guide..." autocomplete="off" aria-label="Search">
+                <button id="searchClose" class="search-panel__close" aria-label="Close">✕</button>
+            </div>
+            <div id="searchResults" class="search-panel__results">
+                <p class="search-panel__empty">Start typing to search...</p>
+            </div>
+        </div>
+    </div>
+    <div id="searchOverlay" class="search-overlay" aria-hidden="true"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
