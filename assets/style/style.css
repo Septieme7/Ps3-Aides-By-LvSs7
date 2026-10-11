@@ -570,6 +570,48 @@ a:hover { color: var(--accent-2); text-decoration: underline; }
 [data-theme="light"] .theme-icon--dark  { opacity: 0; transform: scale(0.5); }
 [data-theme="light"] .theme-icon--light { opacity: 1; transform: scale(1); }
 
+/* ===== BOUTON LANGUE (sous le bouton thème) ===== */
+.lang-toggle {
+    position: fixed;
+    top: 80px;                    /* 20px (theme top) + 50px (theme height) + 10px espace */
+    right: 20px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--bg-elev);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+}
+.lang-toggle:hover {
+    transform: scale(1.1) rotate(-15deg);
+    border-color: var(--accent);
+    text-decoration: none;
+}
+
+/* Responsive : s'aligne sur la taille mobile du bouton thème */
+@media (max-width: 768px) {
+    .lang-toggle {
+        top: 64px;                /* 12px (theme top) + 44px (theme height) + 8px espace */
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .lang-toggle { top: 60px; right: 12px; }
+}
+
 /* ===== BOUTON REMONTER ===== */
 .back-to-top {
     position: fixed; bottom: 24px; right: 24px;
