@@ -238,15 +238,41 @@
     });
 
     /* ============================================================
-       5. SCROLL-SPY
+       5. SCROLL-SPY (corrigé)
+       -----------------------------------------------------------
+       AVANT (bugué) :
+           if (section.offsetTop <= scrollPos) currentId = section.id;
+
+       `section.offsetTop` est relatif à l'offsetParent (ici .layout,
+       qui a position: relative), PAS au document. Résultat : décalage
+       systématique d'1 à 3 crans dans la surbrillance du sommaire.
+
+       MAINTENANT :
+           const top = section.getBoundingClientRect().top + window.scrollY;
+       On obtient une position absolue dans le document, directement
+       comparable à window.scrollY.
        ============================================================ */
     const sections = document.querySelectorAll('section[id]');
+
+    function getDocTop(el) {
+        return el.getBoundingClientRect().top + window.scrollY;
+    }
+
     function updateActiveLink() {
-        const scrollPos = window.scrollY + 130;
+        // Ligne de déclenchement : à 100 px sous le haut du viewport.
+        const scrollPos = window.scrollY + 100;
         let currentId = '';
+
         sections.forEach((section) => {
-            if (section.offsetTop <= scrollPos) currentId = section.id;
+            if (getDocTop(section) <= scrollPos) currentId = section.id;
         });
+
+        // Si l'utilisateur est encore au-dessus de la 1ère section
+        // (page tout en haut), on surligne la 1ère section par défaut.
+        if (!currentId && sections.length > 0) {
+            currentId = sections[0].id;
+        }
+
         tocLinks.forEach((link) => {
             const href = link.getAttribute('href').substring(1);
             link.classList.toggle('active', href === currentId);

@@ -186,11 +186,6 @@
 
         <main class="content">
 
-            <!-- ═══════════════════════════════════════════════════════ -->
-            <!-- TOUTES TES SECTIONS EXISTANTES (chapitres 1 à 23 + CFT) -->
-            <!-- Restent identiques, jusqu'à #etape13 inclus               -->
-            <!-- ═══════════════════════════════════════════════════════ -->
-
             <section id="prerequis" class="section">
                 <div class="section-header">
                     <span class="section-badge">Chapitre 1</span>
@@ -892,7 +887,7 @@
             </section>
 
             <!-- ═══════════════════════════════════════════════════════ -->
-            <!-- NOUVELLE SECTION : PS MULTI TOOLS v16.2                  -->
+            <!-- SECTION : PS MULTI TOOLS v16.2 (unique)                  -->
             <!-- ═══════════════════════════════════════════════════════ -->
 
             <section id="psmultitools" class="section">
@@ -949,226 +944,6 @@
                 <blockquote class="callout callout--info">
                     💡 <strong>Astuce</strong> : Si vous avez renommé le dossier <code>PS3_GAME</code> en autre chose, renommez-le d'abord en <code>PS3_GAME</code> pour que l'outil le reconnaisse.
                 </blockquote>
-
-                <h5>Extraire le contenu d'un ISO</h5>
-                <ol>
-                    <li>Dans la section <strong>"Split / Patch / Extract / Decrypt a PS3 ISO"</strong>, cliquez sur <strong>Browse</strong> en face de <strong>"Selected ISO file"</strong>.</li>
-                    <li>Sélectionnez votre fichier <code>.iso</code>.</li>
-                    <li>Cochez <strong>"Extract selected ISO"</strong>.</li>
-                    <li>Cliquez sur <strong>Browse</strong> en face de <strong>"Select output folder"</strong> et choisissez un dossier de destination.</li>
-                    <li>Optionnel : Cochez <strong>"Split large extracted files"</strong> pour diviser les fichiers &gt; 4 Go.</li>
-                    <li>Cliquez sur <strong>"Modify ISO"</strong>.</li>
-                    <li>Attendez la fin de l'extraction.</li>
-                </ol>
-
-                <h5>Décrypter un ISO avec un fichier DKEY</h5>
-                <ol>
-                    <li>Dans la section <strong>"Split / Patch / Extract / Decrypt a PS3 ISO"</strong>, cliquez sur <strong>Browse</strong> en face de <strong>"Selected ISO file"</strong>.</li>
-                    <li>Sélectionnez votre fichier <code>.iso</code> (chiffré Redump).</li>
-                    <li>Cochez <strong>"Decrypt selected ISO"</strong>.</li>
-                    <li>Cliquez sur <strong>Browse</strong> en face de <strong>"Select an output folder (optional)"</strong>.</li>
-                    <li>Dans le champ <strong>"Enter decryption key or select a DKEY file"</strong>, cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>.dkey</code>, ou collez directement la clé hexadécimale.</li>
-                    <li>Cliquez sur <strong>"Modify ISO"</strong>.</li>
-                    <li>Un nouvel ISO déchiffré sera créé (suffixe <code>.dec.iso</code>).</li>
-                </ol>
-
-                <h5>Patcher un ISO (4.21 vers 4.60)</h5>
-                <ol>
-                    <li>Sélectionnez votre ISO.</li>
-                    <li>Cochez <strong>"Patch selected ISO"</strong>.</li>
-                    <li>Dans <strong>"Version"</strong>, sélectionnez la version cible (ex: <code>4.21</code>).</li>
-                    <li>Cliquez sur <strong>"Modify ISO"</strong>.</li>
-                </ol>
-
-                <h5>Diviser un ISO en parties de 4 Go (FAT32)</h5>
-                <ol>
-                    <li>Sélectionnez votre ISO.</li>
-                    <li>Cochez <strong>"Only split the selected ISO"</strong>.</li>
-                    <li>Cliquez sur <strong>"Modify ISO"</strong>.</li>
-                    <li>L'outil crée des fichiers <code>.iso.0</code>, <code>.iso.1</code>, etc.</li>
-                </ol>
-
-                <h4>2. 📦 PKG Extractor</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PC - Windows Utilities</strong> &gt; <strong>PKG Extractor</strong>.</p>
-
-                <h5>Extraire un PKG</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> ou <strong>Add</strong> pour sélectionner vos fichiers <code>.pkg</code>.</li>
-                    <li>Choisissez un dossier de destination.</li>
-                    <li>Cliquez sur <strong>Extract</strong>.</li>
-                    <li>Les fichiers extraits apparaissent dans le dossier choisi (souvent avec la structure <code>NP00PKGI3/USRDIR/</code>).</li>
-                </ol>
-                <blockquote class="callout callout--info">
-                    💡 <strong>Astuce</strong> : Vous pouvez aussi <strong>glisser-déposer</strong> directement un fichier <code>.pkg</code> sur la fenêtre de PS Multi Tools pour lancer l'extraction automatiquement.
-                </blockquote>
-
-                <h4>3. 📝 PARAM.SFO Editor</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PARAM.SFO Editor</strong> ou en glissant-déposant un fichier <code>PARAM.SFO</code> sur la fenêtre principale.</p>
-
-                <h5>Modifier un PARAM.SFO</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>PARAM.SFO</code>.</li>
-                    <li>Les champs disponibles s'affichent :
-                        <ul>
-                            <li><strong>TitleID</strong> : L'ID du jeu (ex: <code>BLES01646</code>).</li>
-                            <li><strong>Title</strong> : Le nom du jeu.</li>
-                            <li><strong>Category</strong> : La catégorie (<code>DG</code> pour Disc Game, <code>HG</code> pour Harddrive Game).</li>
-                            <li><strong>App Ver</strong> : La version de l'application.</li>
-                            <li><strong>Version</strong> : La version du contenu.</li>
-                        </ul>
-                    </li>
-                    <li>Modifiez les champs souhaités.</li>
-                    <li>Cliquez sur <strong>Save</strong> pour enregistrer.</li>
-                </ol>
-                <blockquote class="callout callout--warning">
-                    ⚠️ <strong>Important</strong> : Le <code>TitleID</code> doit correspondre au dossier du jeu et à l'<code>EBOOT.BIN</code> re-signé. Si vous changez le <code>TitleID</code>, renommez aussi le dossier <code>PS3_GAME</code> en conséquence.
-                </blockquote>
-
-                <h4>4. 📖 PKG Infos Reader</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PKG Infos Reader</strong>.</p>
-
-                <h5>Lire les informations d'un PKG</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>.pkg</code>.</li>
-                    <li>L'outil affiche :
-                        <ul>
-                            <li><strong>Content ID</strong> : L'identifiant unique du contenu (ex: <code>UP0001-NP00PKGI3_00-0000000000000000</code>).</li>
-                            <li><strong>Title</strong> : Le nom du contenu.</li>
-                            <li><strong>Version</strong> : La version du contenu.</li>
-                            <li><strong>Category</strong> : La catégorie (Game, DLC, Theme, etc.).</li>
-                            <li><strong>Size</strong> : La taille du PKG.</li>
-                        </ul>
-                    </li>
-                    <li>Aucune modification n'est possible dans cette fenêtre, c'est un outil de lecture.</li>
-                </ol>
-
-                <h4>5. 🔧 PUP Unpacker</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>PUP Unpacker</strong>.</p>
-
-                <h5>Extraire le contenu d'un firmware PUP</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>.PUP</code> (firmware PS3).</li>
-                    <li>Choisissez un dossier de destination.</li>
-                    <li>Cliquez sur <strong>Unpack</strong>.</li>
-                    <li>L'outil extrait les fichiers du firmware (utile pour récupérer des fichiers système ou analyser un CFW).</li>
-                </ol>
-
-                <h4>6. 🖼️ RCO Dumper</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>RCO Dumper</strong>.</p>
-
-                <h5>Extraire des ressources RCO</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>.rco</code> (fichier de ressources PS3).</li>
-                    <li>Choisissez un dossier de destination.</li>
-                    <li>Cliquez sur <strong>Dump</strong>.</li>
-                    <li>L'outil extrait les ressources (icônes, images, etc.) contenues dans le RCO.</li>
-                </ol>
-
-                <h4>7. 🔍 SELF Reader</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>SELF Reader</strong>.</p>
-
-                <h5>Lire les informations d'un SELF</h5>
-                <ol>
-                    <li>Cliquez sur <strong>Browse</strong> et sélectionnez votre fichier <code>.self</code> (ou <code>EBOOT.BIN</code>).</li>
-                    <li>L'outil affiche les informations du fichier :
-                        <ul>
-                            <li><strong>Content ID</strong> : L'identifiant du contenu.</li>
-                            <li><strong>Type</strong> : Le type de SELF (EBOOT, SPRX, etc.).</li>
-                            <li><strong>Version</strong> : La version du fichier.</li>
-                        </ul>
-                    </li>
-                    <li>Cet outil est en lecture seule, il ne permet pas de modifier ou de re-signer le fichier.</li>
-                </ol>
-
-                <h4>8. 🌐 webMAN MOD Features</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>webMAN MOD Features</strong>.</p>
-                <blockquote class="callout callout--warning">
-                    ⚠️ <strong>Prérequis</strong> : Votre PS3 doit être allumée, connectée au réseau, et webMAN MOD doit être lancé. Configurez l'adresse IP de votre PS3 dans <strong>Settings</strong> &gt; <strong>PS3 IP Address</strong>.
-                </blockquote>
-
-                <h5>PS3NetSrv Utilities</h5>
-                <ul>
-                    <li><strong>Create folder structure (GAMES, PS3ISO, ...)</strong> : Crée l'arborescence de dossiers nécessaire pour ps3netsrv sur votre PC.</li>
-                    <li><strong>Manage virtual folders for ps3netsrv</strong> : Gère les dossiers virtuels partagés.</li>
-                    <li><strong>Share a single folder</strong> : Partage un dossier unique.</li>
-                    <li><strong>Share configured managed virtual folders</strong> : Partage les dossiers virtuels configurés.</li>
-                </ul>
-
-                <h5>Disc &amp; Game Utilities</h5>
-                <ul>
-                    <li><strong>Play inserted disc</strong> : Lance le disque inséré dans la PS3.</li>
-                    <li><strong>Eject inserted disc</strong> : Éjecte le disque.</li>
-                    <li><strong>Insert disc in tray</strong> : Insère le disque dans le lecteur.</li>
-                    <li><strong>Exit game to XMB</strong> : Quitte le jeu en cours et retourne au XMB.</li>
-                    <li><strong>Reload PS3 game</strong> : Recharge le jeu en cours.</li>
-                    <li><strong>Toggle video recording (in-game)</strong> : Active/désactive l'enregistrement vidéo en jeu.</li>
-                    <li><strong>Toggle in-game background music playback</strong> : Active/désactive la musique de fond en jeu.</li>
-                </ul>
-
-                <h5>General Utilities</h5>
-                <ul>
-                    <li><strong>Rescan the games and refresh XML</strong> : Rafraîchit la liste des jeux dans webMAN MOD.</li>
-                    <li><strong>Shutdown the PS3 console</strong> : Éteint la PS3.</li>
-                    <li><strong>Restart the PS3 console</strong> : Redémarre la PS3.</li>
-                    <li><strong>Restart the PS3 console and allow scan content on startup</strong> : Redémarre et scanne le contenu au démarrage.</li>
-                    <li><strong>Restart the PS3 console and show the min version</strong> : Redémarre et affiche la version minimale.</li>
-                    <li><strong>Hard reboot</strong> : Redémarrage forcé.</li>
-                    <li><strong>Reboot using VSH command</strong> : Redémarre via la commande VSH.</li>
-                    <li><strong>Open an URL on the PS3 web browser</strong> : Ouvre une URL dans le navigateur de la PS3.</li>
-                </ul>
-
-                <h5>Download &amp; Installation Utilities</h5>
-                <ul>
-                    <li><strong>Download a PKG from an URL to the PS3 HDD</strong> : Télécharge un PKG depuis une URL vers le disque dur de la PS3.</li>
-                    <li><strong>Download a file from an URL to the PS3 HDD</strong> : Télécharge un fichier depuis une URL vers le disque dur de la PS3.</li>
-                    <li><strong>Download &amp; Install a PKG from an URL</strong> : Télécharge et installe un PKG depuis une URL.</li>
-                    <li><strong>Install a PKG from the PS3 HDD</strong> : Installe un PKG depuis le disque dur de la PS3.</li>
-                    <li><strong>Install a theme from the PS3 HDD</strong> : Installe un thème depuis le disque dur de la PS3.</li>
-                </ul>
-
-                <h5>Temperature Monitoring</h5>
-                <ul>
-                    <li><strong>Web GUI for monitor temperatures in Celsius</strong> : Ouvre l'interface web de surveillance des températures en Celsius.</li>
-                    <li><strong>Web GUI for monitor temperatures in Fahrenheit</strong> : Ouvre l'interface web de surveillance des températures en Fahrenheit.</li>
-                    <li><strong>Show system info on PS3</strong> : Affiche les informations système sur la PS3.</li>
-                </ul>
-
-                <h4>9. 🛠️ Core_OS Tools</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>Core_OS Tools</strong>.</p>
-                <p>Cet outil permet de manipuler les fichiers du Core OS de la PS3 (utilisé principalement pour le développement et la recherche).</p>
-
-                <h4>10. 🔧 Fix Tar Tool</h4>
-                <p>Accessible via <strong>Tools</strong> &gt; <strong>PS3</strong> &gt; <strong>Fix Tar Tool</strong>.</p>
-                <p>Cet outil répare les archives TAR corrompues ou mal formées, souvent utilisées dans les firmwares PS3.</p>
-
-                <h3>🆘 Dépannage</h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead><tr><th>Problème</th><th>Solution</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>L'outil ne se lance pas</strong></td><td>Vérifiez que le <strong>.NET 9.0 Desktop Runtime</strong> est installé.</td></tr>
-                            <tr><td><strong>Windows Defender bloque l'outil</strong></td><td>Ajoutez une exclusion pour le dossier de PS Multi Tools (faux positif).</td></tr>
-                            <tr><td><strong>"Create ISO" ne fait rien</strong></td><td>Vérifiez que le dossier <code>PS3_GAME</code> est bien présent à la racine.</td></tr>
-                            <tr><td><strong>webMAN MOD Features ne répond pas</strong></td><td>Vérifiez l'adresse IP de la PS3 dans <strong>Settings</strong> et que webMAN MOD est lancé.</td></tr>
-                            <tr><td><strong>Erreur 80010017 après installation</strong></td><td>L'<code>EBOOT.BIN</code> n'est pas correctement signé. Re-signez-le avec <strong>TrueAncestor</strong>.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>📌 En résumé</h3>
-                <p>PS Multi Tools v16.2 est un <strong>couteau suisse indispensable</strong> pour tout utilisateur de PS3 jailbreakée. Il vous permet de :</p>
-                <ul>
-                    <li>✅ Créer, extraire, diviser et décrypter des <strong>ISOs PS3</strong>.</li>
-                    <li>✅ Extraire et analyser des <strong>PKGs</strong>.</li>
-                    <li>✅ Modifier les fichiers <strong><code>PARAM.SFO</code></strong>.</li>
-                    <li>✅ Gérer les <strong>firmwares</strong> et les <strong>homebrews</strong>.</li>
-                    <li>✅ Contrôler votre PS3 à distance via <strong>webMAN MOD</strong>.</li>
-                </ul>
-                <p>Avec ce guide, vous avez toutes les clés pour utiliser l'outil de A à Z. Bon modding ! 🎮</p>
-                <blockquote class="callout callout--info">
-                    📖 <strong>Guide rédigé pour PS Multi Tools v16.2.</strong> Consultez la <a href="https://github.com/SvenGDK/PS-Multi-Tools" target="_blank" rel="noopener">documentation officielle</a> pour les dernières mises à jour. By LvSs7...et vous...
-                </blockquote>
-            </section>
 
                 <h5>Extraire le contenu d'un ISO</h5>
                 <ol>
@@ -1426,7 +1201,7 @@
             </section>
 
             <!-- ═══════════════════════════════════════════════════════ -->
-            <!-- FIN NOUVELLE SECTION                                     -->
+            <!-- FIN SECTION PS MULTI TOOLS                                -->
             <!-- ═══════════════════════════════════════════════════════ -->
 
             <section id="etape14" class="section">
@@ -1661,8 +1436,7 @@
             </section>
 
             <!-- ═══════════════════════════════════════════════════════ -->
-            <!-- LES SECTIONS CFT, OVERCLOCK, PAS DE FRÉQUENCE, RESSOURCES -->
-            <!-- ET RUNTIMES RESTENT IDENTIQUES À TA VERSION EXISTANTE.    -->
+            <!-- CUSTOM FIRMWARE TOOLS — Sections détaillées              -->
             <!-- ═══════════════════════════════════════════════════════ -->
 
             <section id="cft" class="section">
@@ -1673,7 +1447,413 @@
                 <p>Ce menu, accessible depuis la colonne <strong>Réseau</strong> du XMB, est le centre de contrôle de votre CFW Evilnat. Il regroupe tous les outils avancés pour gérer, personnaliser et diagnostiquer votre PS3. Voici le détail de chaque option, classée par catégorie.</p>
             </section>
 
-            <!-- [Tes sections CFT 1 à 15 restent identiques, insère-les ici] -->
+            <section id="cft-power" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Power</span>
+                    <h2>⏻ Power Options (Options d'alimentation)</h2>
+                </div>
+                <p>Ce sous-menu permet de contrôler l'état de la console.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Turn Off</strong></td><td>Éteint la PS3.</td><td>Pour un arrêt propre.</td><td>Alternative au bouton power.</td></tr>
+                            <tr><td><strong>Hard Reboot</strong></td><td>Redémarre complètement la PS3 (comme un cycle power).</td><td>Après une modification système profonde.</td><td>Force un redémarrage complet du matériel.</td></tr>
+                            <tr><td><strong>Soft Reboot</strong></td><td>Redémarre la PS3 de manière logicielle (plus rapide).</td><td>Pour appliquer des changements de CFW.</td><td>Plus rapide qu'un redémarrage complet.</td></tr>
+                            <tr><td><strong>Reboot LV2</strong></td><td>Redémarre uniquement le noyau LV2 (bas niveau).</td><td>Pour tester des changements de bas niveau.</td><td>Redémarrage ultra-rapide pour développeurs.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-filemanager" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · File Manager</span>
+                    <h2>📁 File Manager (Gestionnaire de fichiers)</h2>
+                </div>
+                <p>Un explorateur de fichiers intégré pour naviguer et gérer les fichiers directement sur la PS3.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Internal Hard Disk Drive 0</strong></td><td>Gère les fichiers dans <code>/dev_hdd0</code> (disque principal).</td><td>Pour organiser vos jeux, sauvegardes, etc.</td><td>Évite de passer par un PC.</td></tr>
+                            <tr><td><strong>Internal Hard Disk Drive 1</strong></td><td>Gère les fichiers dans <code>/dev_hdd1</code> (cache disque).</td><td>Pour nettoyer le cache.</td><td>Utile pour libérer de l'espace.</td></tr>
+                            <tr><td><strong>Internal Flash Memory</strong></td><td>Gère les fichiers dans la mémoire flash interne.</td><td><strong>Réservé aux experts.</strong></td><td>Accès aux fichiers système critiques.</td></tr>
+                            <tr><td><strong>Optical Disc</strong></td><td>Gère les fichiers du disque optique inséré.</td><td>Pour explorer le contenu d'un disque.</td><td>Rarement utilisé.</td></tr>
+                            <tr><td><strong>USB Mass Storage Devices</strong></td><td>Gère les fichiers sur vos périphériques USB.</td><td>Pour copier des fichiers depuis/vers l'USB.</td><td>Pratique sans FTP.</td></tr>
+                            <tr><td><strong>Memory Cards</strong></td><td>Gère les fichiers sur les cartes mémoire (adaptateur).</td><td>Si vous utilisez des cartes mémoire PS1/PS2.</td><td>Pour les sauvegardes rétro.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-overclock" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Overclock</span>
+                    <h2>🚀 Overclock Tools (Outils d'overclocking)</h2>
+                </div>
+                <p>Ce sous-menu permet d'augmenter les fréquences du processeur graphique (RSX) pour améliorer les performances en jeu. <strong>Utilisez avec une extrême prudence.</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>RSX Core Clock</strong></td><td>Augmente la fréquence du cœur du RSX (par pas de 50 MHz).</td><td>Si un jeu est limité par le GPU.</td><td>Gain de fluidité.</td></tr>
+                            <tr><td><strong>RSX Memory Clock</strong></td><td>Augmente la fréquence de la mémoire du RSX (par pas de 25 MHz).</td><td>Si les textures sont lentes à charger.</td><td>Améliore la bande passante mémoire.</td></tr>
+                            <tr><td><strong>Check GPU/VRAM clock speed</strong></td><td>Affiche les fréquences actuelles du RSX.</td><td>Avant et après un overclock.</td><td>Pour vérifier que l'OC est appliqué.</td></tr>
+                            <tr><td><strong>Default Frequencies</strong></td><td>Réinitialise le RSX aux fréquences d'usine (500/650 MHz).</td><td>En cas d'instabilité.</td><td>Retour à un état sûr.</td></tr>
+                            <tr><td><strong>Custom Values</strong></td><td>Permet de choisir des fréquences prédéfinies (ex: 600/750, 700/850 MHz).</td><td>Pour un OC équilibré et testé.</td><td>Évite de saisir des valeurs manuellement.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--info">
+                    💡 <strong>Astuce</strong> : Pour un overclocking persistant au démarrage, créez un fichier <code>overclock.txt</code> à la racine d'une clé USB ou du disque interne (<code>/dev_hdd0/</code>) avec les fréquences souhaitées (ex: <code>700</code> puis <code>850</code> sur deux lignes). Cobra lira ce fichier au boot.
+                </blockquote>
+                <blockquote class="callout callout--danger">
+                    ⚠️ <strong>Avertissement</strong> : L'overclocking augmente la chaleur et la consommation. Assurez-vous que votre PS3 est bien refroidie (pâte thermique récente, ventilateur fonctionnel). Un OC trop élevé peut causer des freezes, des artefacts graphiques, voire endommager la console.
+                </blockquote>
+            </section>
+
+            <section id="cft-basic" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Basic</span>
+                    <h2>🛠️ Basic Tools (Outils de base)</h2>
+                </div>
+                <p>Une collection d'outils divers pour l'information et la maintenance.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Total PS3 Usage</strong></td><td>Affiche le temps de fonctionnement total et le nombre de cycles d'allumage.</td><td>Pour connaître l'usure de la console.</td><td>Information pour l'achat/vente.</td></tr>
+                            <tr><td><strong>Show IDs</strong></td><td>Affiche l'IDPS, PSID, l'adresse IP et l'adresse MAC.</td><td>Pour le dépannage réseau ou le spoofing.</td><td>Récupérer les identifiants système.</td></tr>
+                            <tr><td><strong>Fix CBOMB</strong></td><td>Corrige l'horloge RTC si la pile CMOS est morte.</td><td>Si la PS3 affiche une date erronée.</td><td>Évite les erreurs de certificat.</td></tr>
+                            <tr><td><strong>Toggle DLNA</strong></td><td>Active/désactive le partage de médias DLNA.</td><td>Pour streamer depuis un PC.</td><td>Activation rapide du serveur média.</td></tr>
+                            <tr><td><strong>Toggle Third Party BT Headset</strong></td><td>Active/désactive l'utilisation de casques Bluetooth tiers.</td><td>Si votre casque n'est pas reconnu.</td><td>Compatibilité élargie.</td></tr>
+                            <tr><td><strong>Decrypt 3k3y/Redump ISOs (HDD/USB)</strong></td><td>Décrypte les ISOs de jeux PS3 copiés depuis un disque.</td><td>Si vous avez des ISOs cryptés.</td><td>Permet de les lancer.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Basic Tools &gt; xRegistry Tools (Outils du registre)</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Region Info</strong></td><td>Affiche la région actuelle du lecteur Blu-ray/DVD.</td><td>Avant de changer de région.</td><td>Vérifier la configuration.</td></tr>
+                            <tr><td><strong>DVD TV System</strong></td><td>Bascule entre PAL et NTSC pour les DVD.</td><td>Si un DVD ne s'affiche pas correctement.</td><td>Compatibilité vidéo.</td></tr>
+                            <tr><td><strong>Backup xRegistry.sys</strong></td><td>Sauvegarde le fichier de registre système.</td><td>Avant toute modification risquée.</td><td>Restauration en cas de problème.</td></tr>
+                            <tr><td><strong>Button Assignment</strong></td><td>Inverse les boutons O et X.</td><td>Pour les joueurs habitués au layout japonais.</td><td>Confort de jeu.</td></tr>
+                            <tr><td><strong>Region Tools</strong></td><td>Change la région du lecteur (Japon, USA, Europe, etc.).</td><td>Pour lire des disques d'autres régions.</td><td>Dézonage.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-fan" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · FAN</span>
+                    <h2>🌡️ FAN Tools (Outils du ventilateur)</h2>
+                </div>
+                <p>Contrôle fin de la ventilation pour protéger votre console.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Temperature Information</strong></td><td>Affiche les températures CPU/RSX, la vitesse du ventilo et le mode actuel.</td><td>Pour surveiller la santé de la console.</td><td>Diagnostic en temps réel.</td></tr>
+                            <tr><td><strong>Control FAN Mode: DISABLED</strong></td><td>Désactive le contrôle du ventilateur par Cobra.</td><td>Rarement.</td><td>Laisser le système gérer.</td></tr>
+                            <tr><td><strong>Control FAN Mode: SYSCON</strong></td><td>Le contrôleur SYSCON gère la ventilation automatiquement.</td><td>Usage normal.</td><td>Le plus sûr et stable.</td></tr>
+                            <tr><td><strong>Control FAN Mode: MAX</strong></td><td>Force le ventilateur à 100%.</td><td>En cas de surchauffe extrême.</td><td>Refroidissement maximal (très bruyant).</td></tr>
+                            <tr><td><strong>Dynamic FAN Control</strong></td><td>Ajuste la vitesse pour maintenir une température cible (60°C, 65°C, 70°C, 75°C).</td><td>Pour un bon compromis bruit/refroidissement.</td><td>Protection automatique.</td></tr>
+                            <tr><td><strong>Manual Speed</strong></td><td>Fixe la vitesse du ventilateur à un pourcentage constant (40% à 95%).</td><td>Si vous préférez un bruit constant.</td><td>Contrôle total.</td></tr>
+                            <tr><td><strong>PS2 FAN Mode</strong></td><td>Définit la vitesse du ventilateur en jeu PS2 (DISABLED, SYSCON, 40% à 90%).</td><td>Si vos jeux PS2 font chauffer la console.</td><td>Refroidissement dédié.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote class="callout callout--warning">
+                    ⚠️ <strong>Avertissement</strong> : En mode PS2, il n'y a pas de contrôle dynamique. Choisissez une vitesse fixe avec discernement. Une vitesse trop basse peut causer une surchauffe.
+                </blockquote>
+            </section>
+
+            <section id="cft-qa" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · QA</span>
+                    <h2>🛡️ QA Tools (Outils QA)</h2>
+                </div>
+                <p>Les QA Flags sont des drapeaux de développement nécessaires pour certaines opérations avancées.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Check QA Flags</strong></td><td>Vérifie si les QA Flags sont activés ou désactivés.</td><td>Avant un downgrade.</td><td>État des lieux.</td></tr>
+                            <tr><td><strong>Enable QA Flags (Normal)</strong></td><td>Active les QA Flags via les paramètres réseau.</td><td>Pour autoriser un downgrade.</td><td>Débloque les options système.</td></tr>
+                            <tr><td><strong>Enable QA Flags (Advanced)</strong></td><td>Active les QA Flags avancés.</td><td>Pour des opérations plus poussées.</td><td>Accès à plus d'options.</td></tr>
+                            <tr><td><strong>Disable QA Flags</strong></td><td>Désactive les QA Flags.</td><td>Après avoir terminé.</td><td>Retour à un état "propre".</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-cobra" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Cobra</span>
+                    <h2>🐍 Cobra Tools (Outils Cobra)</h2>
+                </div>
+                <p>Options spécifiques au payload Cobra.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Cobra Information</strong></td><td>Affiche la version de Cobra et l'état du syscall 8.</td><td>Pour vérifier que Cobra est actif.</td><td>Diagnostic.</td></tr>
+                            <tr><td><strong>Toggle Plugins</strong></td><td>Active/désactive les plugins Cobra (<code>boot_plugins.txt</code>).</td><td>Si un plugin cause des instabilités.</td><td>Isolation de problème.</td></tr>
+                            <tr><td><strong>Toggle Gameboot</strong></td><td>Active/désactive l'animation de démarrage des jeux.</td><td>Pour un démarrage plus rapide.</td><td>Gain de temps.</td></tr>
+                            <tr><td><strong>Toggle Coldboot</strong></td><td>Bascule entre l'animation de démarrage personnalisée et l'originale.</td><td>Si vous avez un coldboot custom.</td><td>Personnalisation.</td></tr>
+                            <tr><td><strong>Toggle Coldboot Animation</strong></td><td>Active/désactive complètement l'animation et le son de démarrage.</td><td>Pour un boot silencieux.</td><td>Discrétion.</td></tr>
+                            <tr><td><strong>Toggle XMB Waves</strong></td><td>Active/désactive les vagues animées du XMB (FW 2.70).</td><td>Pour une interface plus sobre.</td><td>Préférence esthétique.</td></tr>
+                            <tr><td><strong>Toggle External Cobra</strong></td><td>Active/désactive le chargement de payloads Cobra externes depuis USB.</td><td>Si vous utilisez des plugins USB.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Toggle OFW Mode on Boot</strong></td><td>Contrôle l'état des syscalls CFW au démarrage (enabled, disabled, partial).</td><td>Pour démarrer en mode "proche de l'OFW".</td><td>Éviter les risques de ban PSN.</td></tr>
+                            <tr><td><strong>Toggle Cobra Version</strong></td><td>Bascule entre version release (stable) et debug.</td><td>Pour le débogage avancé.</td><td>Logs supplémentaires. <strong>Redémarrage requis.</strong></td></tr>
+                            <tr><td><strong>Toggle Cobra</strong></td><td>Active/désactive complètement le payload Cobra.</td><td>En cas de problème de compatibilité.</td><td>Diagnostic. <strong>Redémarrage requis.</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-psn" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · PSN</span>
+                    <h2>🌐 PSN Tools (Outils PSN)</h2>
+                </div>
+                <p>Outils liés au PlayStation Network et à l'activation de compte.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Disable Syscalls</strong></td><td>Désactive les syscalls CFW et supprime les fichiers d'historique.</td><td>Avant de se connecter au PSN.</td><td>Réduire le risque de ban.</td></tr>
+                            <tr><td><strong>Create Syscalls</strong></td><td>Crée les syscalls CFW (6, 7, 8, 9, 10, 11, 15, 35).</td><td>Après les avoir désactivés.</td><td>Réactiver les fonctionnalités CFW.</td></tr>
+                            <tr><td><strong>Toggle PSN Protection</strong></td><td>Active/désactive le blocage de connexion PSN lorsque les syscalls sont actifs.</td><td>Pour éviter les connexions accidentelles.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Spoof TargetID</strong></td><td>Usurpe le TargetID de la console avec celui d'une autre.</td><td>Pour contourner certaines restrictions.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Spoof IDPS</strong></td><td>Usurpe l'IDPS à partir d'un fichier <code>IDPS.txt</code> sur USB.</td><td>Pour le spoofing.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Spoof PSID</strong></td><td>Usurpe le PSID à partir d'un fichier <code>PSID.txt</code> sur USB.</td><td>Pour le spoofing.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Spoof MAC</strong></td><td>Usurpe l'adresse MAC à partir d'un fichier <code>MAC.txt</code> sur USB.</td><td>Pour le spoofing réseau.</td><td>Avancé.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>PSN Tools &gt; Account Tools (Outils de compte)</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show accountID</strong></td><td>Affiche l'accountID de l'utilisateur actuel.</td><td>Pour vérifier l'activation.</td><td>Information.</td></tr>
+                            <tr><td><strong>Create accountID</strong></td><td>Crée un faux accountID.</td><td>Pour l'activation hors ligne.</td><td>Contournement.</td></tr>
+                            <tr><td><strong>Overwrite accountID</strong></td><td>Écrase l'accountID actuel par un faux.</td><td>Pour changer d'identité.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Remove accountID</strong></td><td>Supprime l'accountID actuel.</td><td>Pour réinitialiser.</td><td>Nettoyage.</td></tr>
+                            <tr><td><strong>Activate account</strong></td><td>Crée le fichier <code>act.dat</code> pour activer le compte local.</td><td>Pour activer des contenus PSN.</td><td>Essentiel pour les jeux PSN.</td></tr>
+                            <tr><td><strong>Backup activation file</strong></td><td>Sauvegarde le fichier <code>act.dat</code> sur USB ou HDD.</td><td>Avant une modification.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Disable account</strong></td><td>Supprime définitivement le fichier <code>act.dat</code>.</td><td>Pour désactiver le compte.</td><td><strong>Irréversible.</strong></td></tr>
+                            <tr><td><strong>Create license</strong></td><td>Crée des licences RIF à partir de fichiers RAP dans <code>exdata</code>.</td><td>Pour activer des jeux PSN.</td><td>Indispensable.</td></tr>
+                            <tr><td><strong>Import Licenses to rap.bin</strong></td><td>Importe les licences RAP dans un fichier <code>rap.bin</code>.</td><td>Pour regrouper les licences.</td><td>Organisation.</td></tr>
+                            <tr><td><strong>Export Licenses from rap.bin</strong></td><td>Exporte les licences RAP depuis <code>rap.bin</code>.</td><td>Pour les restaurer.</td><td>Restauration.</td></tr>
+                            <tr><td><strong>Convert savedata</strong></td><td>Convertit des sauvegardes d'un autre utilisateur pour votre compte.</td><td>Pour utiliser des sauvegardes téléchargées.</td><td>Compatibilité.</td></tr>
+                            <tr><td><strong>Toggle TrophyUnlocker</strong></td><td>Active/désactive le plugin de déblocage de trophées.</td><td>Pour gérer les trophées.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Toggle Hidden Trophy Info</strong></td><td>Affiche les détails des trophées cachés.</td><td>Pour voir les trophées secrets.</td><td>Information.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-dump" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Dump</span>
+                    <h2>📤 Dump Tools (Outils de dump)</h2>
+                </div>
+                <p>Outils pour extraire des données système à des fins de diagnostic ou de sauvegarde.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>View Log</strong></td><td>Ouvre le fichier log des paramètres CFW via webMAN MOD.</td><td>Pour consulter l'historique des actions.</td><td>Diagnostic.</td></tr>
+                            <tr><td><strong>Clean Log File</strong></td><td>Réinitialise le fichier log.</td><td>Pour repartir à zéro.</td><td>Nettoyage.</td></tr>
+                            <tr><td><strong>Dump IDs</strong></td><td>Sauvegarde IDPS, PSID, MAC et <code>act.dat</code>.</td><td>Pour sauvegarder vos identifiants.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Export RAP license</strong></td><td>Exporte les licences RAP depuis les RIF installés.</td><td>Pour sauvegarder vos licences.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Dump LV2 / LV1</strong></td><td>Sauvegarde le noyau LV2 ou LV1.</td><td>Pour le débogage avancé.</td><td>Développeurs.</td></tr>
+                            <tr><td><strong>Dump Flash</strong></td><td>Sauvegarde la mémoire flash NOR/NAND.</td><td><strong>Avant une opération risquée.</strong></td><td>Sauvegarde de sécurité.</td></tr>
+                            <tr><td><strong>Dump RAM</strong></td><td>Sauvegarde la mémoire RAM.</td><td>Pour le débogage.</td><td>Développeurs.</td></tr>
+                            <tr><td><strong>Dump SYSROM</strong></td><td>Sauvegarde la SYSROM.</td><td>Pour le débogage.</td><td>Développeurs.</td></tr>
+                            <tr><td><strong>Dump EEPROM</strong></td><td>Sauvegarde 256 octets de l'EEPROM.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Dump ERK</strong></td><td>Sauvegarde la clé racine <code>eid_root_key</code>.</td><td><strong>Très important pour les opérations avancées.</strong></td><td>Nécessaire pour le remariage du lecteur Blu-ray, etc.</td></tr>
+                            <tr><td><strong>Dump METLDR</strong></td><td>Sauvegarde le metldr décrypté.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Dump SYSCON Error Log</strong></td><td>Sauvegarde le journal d'erreurs du SYSCON.</td><td>En cas de problème matériel.</td><td>Diagnostic.</td></tr>
+                            <tr><td><strong>Dump Token Seed</strong></td><td>Sauvegarde le token seed.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Log KLicense usage</strong></td><td>Enregistre l'utilisation des klicensee.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Log Secure File ID usage</strong></td><td>Enregistre les ID de fichiers sécurisés.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Dump Disc Hash Key</strong></td><td>Récupère la clé de hachage d'un disque original.</td><td>Pour le dump de disques.</td><td>Avancé.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-cexdex" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · CEX/DEX</span>
+                    <h2>🔄 CEX2DEX Tools (Outils de conversion CEX/DEX)</h2>
+                </div>
+                <p>Outils pour convertir votre PS3 entre les modes CEX (retail) et DEX (debug).</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show Information</strong></td><td>Affiche le firmware, le noyau, le TargetID, etc.</td><td>Pour connaître l'état actuel.</td><td>Information.</td></tr>
+                            <tr><td><strong>Check TargetID</strong></td><td>Vérifie le TargetID actuel.</td><td>Avant une conversion.</td><td>Prérequis.</td></tr>
+                            <tr><td><strong>Convert to CEX</strong></td><td>Convertit la PS3 en mode CEX (retail).</td><td>Pour revenir à un mode standard.</td><td>Compatibilité.</td></tr>
+                            <tr><td><strong>Convert to DEX</strong></td><td>Convertit la PS3 en mode DEX (debug).</td><td>Pour le développement.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Swap Kernel</strong></td><td>Bascule entre les noyaux CEX et DEX.</td><td>Après une conversion.</td><td>Finalisation.</td></tr>
+                            <tr><td><strong>Toggle XMB Mode</strong></td><td>Bascule l'interface XMB entre CEX et DEX.</td><td>Pour changer l'apparence.</td><td>Préférence.</td></tr>
+                            <tr><td><strong>Toggle Debug Settings</strong></td><td>Active/désactive les paramètres de débogage.</td><td>Pour les développeurs.</td><td>Avancé.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-rebug" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Rebug</span>
+                    <h2>🧰 Rebug Tools (Outils Rebug)</h2>
+                </div>
+                <p>Ces options activent des patches de bas niveau hérités du CFW Rebug. <strong>Réservé aux utilisateurs très avancés.</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>LV1 Peek/Poke Support</strong></td><td>Active les appels système de lecture/écriture LV1.</td><td>Pour le débogage noyau.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>LV2 Memory Protection</strong></td><td>Désactive la protection mémoire LV2.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>HTAB Mapping With Write Protection</strong></td><td>Active la protection en écriture du HTAB.</td><td>Pour la stabilité.</td><td>Sécurité.</td></tr>
+                            <tr><td><strong>Access to all INDI Info Manager Services</strong></td><td>Active l'accès complet au gestionnaire INDI.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Update Manager EEPROM Write Access</strong></td><td>Active l'écriture EEPROM via l'Update Manager.</td><td>Pour les développeurs.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Dispatch Manager Access</strong></td><td>Active l'accès complet au Dispatch Manager.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Allow ENCDEC IOCTL Command 0x85</strong></td><td>Active la commande IOCTL 0x85.</td><td>Pour le décryptage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>System Manager Ability Mask of GameOS</strong></td><td>Active l'accès complet au System Manager.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Extract all PKG Types</strong></td><td>Autorise l'extraction de tous les types de PKG.</td><td>Pour l'analyse de PKG.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Full Access for Repo Nodes in Any LPAR</strong></td><td>Active l'accès complet aux nœuds du dépôt.</td><td>Pour le développement.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>LV1 Full Access to MFC_SR1 SPE Register</strong></td><td>Active l'accès complet au registre SPE.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>LV1 Access to set Data Break Points</strong></td><td>Active les points d'arrêt de données LV1.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>LV1 Access to GPU GART Memory</strong></td><td>Active l'accès LV1 à la mémoire GART du GPU.</td><td>Pour le débogage graphique.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Storage Manager ENCDEC Keys Access</strong></td><td>Autorise l'effacement des clés ENCDEC.</td><td>Pour le décryptage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Skip all ACL Checks</strong></td><td>Désactive toutes les vérifications ACL.</td><td>Pour le contournement.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Initial GuestOS Loader</strong></td><td>Active le mode GuestOS 1 pour GameOS.</td><td>Pour OtherOS.</td><td>Avancé.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-otheros" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · OtherOS</span>
+                    <h2>💻 OtherOS Tools (Outils OtherOS)</h2>
+                </div>
+                <p>Outils pour installer et gérer un système d'exploitation alternatif (Linux) sur PS3.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Install OtherOS</strong></td><td>Redimensionne les régions VFLASH/NAND et installe Petitboot.</td><td>Pour installer Linux.</td><td>Prérequis.</td></tr>
+                            <tr><td><strong>Set OtherOS Boot Flag</strong></td><td>Redémarre la PS3 et boot sur OtherOS.</td><td>Pour lancer Linux.</td><td>Bascule.</td></tr>
+                            <tr><td><strong>Set GameOS Boot Flag</strong></td><td>Réinitialise le flag de boot pour GameOS.</td><td>Pour revenir à la PS3.</td><td>Correction de bug PS2.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-service" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Service</span>
+                    <h2>🛠️ Service Tools (Outils de service)</h2>
+                </div>
+                <p>Outils de maintenance et de réparation.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Display Applicable Version</strong></td><td>Affiche la version minimale de downgrade possible.</td><td>Avant un downgrade.</td><td>Information.</td></tr>
+                            <tr><td><strong>Show BD Drive Information</strong></td><td>Affiche les informations du lecteur Blu-ray.</td><td>Pour le diagnostic.</td><td>Information.</td></tr>
+                            <tr><td><strong>Check File System</strong></td><td>Redémarre et lance une vérification/réparation du système de fichiers.</td><td>En cas de corruption.</td><td>Réparation.</td></tr>
+                            <tr><td><strong>Rebuild Database</strong></td><td>Redémarre avec l'option de reconstruction de la base de données.</td><td>Si le XMB est lent ou plante.</td><td>Maintenance.</td></tr>
+                            <tr><td><strong>Toggle Recovery Mode</strong></td><td>Redémarre en mode Recovery.</td><td>Pour les opérations de maintenance.</td><td>Accès au menu Recovery. <strong>Non supporté sur les modèles NAND.</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Service Tools &gt; Advanced Service Tools</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>RSOD fix</strong></td><td>Réinitialise la région VTRM pour tenter de corriger un RSOD.</td><td>En cas d'écran rouge.</td><td>Réparation.</td></tr>
+                            <tr><td><strong>Toggle Factory Service Mode</strong></td><td>Entre/sort du mode Factory Service.</td><td>Pour le remariage du lecteur.</td><td>Avancé. <strong>Ne pas installer de CFW en FSM.</strong></td></tr>
+                            <tr><td><strong>Remarry Bluray Drive</strong></td><td>Remarie le lecteur Blu-ray à la carte mère.</td><td>Après un remplacement de lecteur.</td><td>Réparation.</td></tr>
+                            <tr><td><strong>Toggle HDD Space</strong></td><td>Débloque 8% d'espace supplémentaire sur le disque interne.</td><td>Pour gagner de la place.</td><td>Optimisation.</td></tr>
+                            <tr><td><strong>Show ROS Bank</strong></td><td>Affiche la banque ROS active.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Check 8th SPE</strong></td><td>Vérifie si le 8ème SPE est activé.</td><td>Pour le diagnostic.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Toggle 8th SPE</strong></td><td>Active/désactive le 8ème SPE.</td><td>Pour le débogage.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Enable VSH Debugging</strong></td><td>Active le débogage du VSH.</td><td>Pour les développeurs.</td><td>Avancé.</td></tr>
+                            <tr><td><strong>Load LV2 kernel</strong></td><td>Charge un noyau LV2 personnalisé.</td><td>Pour le développement.</td><td>Avancé.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-led" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Led</span>
+                    <h2>💡 Led Tools (Outils LED)</h2>
+                </div>
+                <p>Permet de contrôler la LED de la console.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Off</strong></td><td>Éteint la LED.</td><td>Pour la discrétion.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Red (Static)</strong></td><td>LED rouge fixe.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Green (Static)</strong></td><td>LED verte fixe.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow (Static)</strong></td><td>LED jaune fixe.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Red (Slow blink)</strong></td><td>LED rouge clignotante lente.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Green (Slow blink)</strong></td><td>LED verte clignotante lente.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow (Slow blink)</strong></td><td>LED jaune clignotante lente.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Red (Fast blink)</strong></td><td>LED rouge clignotante rapide.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Green (Fast blink)</strong></td><td>LED verte clignotante rapide.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow (Fast blink)</strong></td><td>LED jaune clignotante rapide.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow + Green (Fast blink)</strong></td><td>LED jaune + verte clignotante rapide.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow + Red (Fast blink)</strong></td><td>LED jaune + rouge clignotante rapide.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow + Green (Slow blink)</strong></td><td>LED jaune + verte clignotante lente.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Yellow + Red (Slow blink)</strong></td><td>LED jaune + rouge clignotante lente.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Rainbow Mode</strong></td><td>LED en mode arc-en-ciel.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                            <tr><td><strong>Special Mode 1 / 2</strong></td><td>Modes LED spéciaux.</td><td>Pour un look personnalisé.</td><td>Esthétique.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cft-updates" class="section">
+                <div class="section-header">
+                    <span class="section-badge">CFT · Updates</span>
+                    <h2>⬆️ Updates (Mises à jour)</h2>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Option</th><th>À quoi ça sert ?</th><th>Quand l'utiliser ?</th><th>Pourquoi ?</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Show XAI Version</strong></td><td>Affiche la version actuelle du plugin XAI.</td><td>Pour vérifier.</td><td>Information.</td></tr>
+                            <tr><td><strong>xai_plugin</strong></td><td>Télécharge la dernière version du plugin XAI.</td><td>Pour rester à jour.</td><td>Nouvelles fonctionnalités.</td></tr>
+                            <tr><td><strong>CFW 4.93 Fixes</strong></td><td>Télécharge des correctifs pour les modules de CFW 4.93.</td><td>Pour corriger des bugs.</td><td>Stabilité.</td></tr>
+                            <tr><td><strong>PS2 EMUs Cobra</strong></td><td>Télécharge la dernière version des émulateurs PS1/PS2 Cobra.</td><td>Pour améliorer la compatibilité.</td><td>Mises à jour.</td></tr>
+                            <tr><td><strong>PS2 EMUs MOD</strong></td><td>Télécharge la dernière version des émulateurs moddés (par mrjaredbeta et kozarovv).</td><td>Pour une compatibilité maximale.</td><td>Améliorations communautaires.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- FIN CUSTOM FIRMWARE TOOLS                                -->
+            <!-- ═══════════════════════════════════════════════════════ -->
 
             <section id="overclock" class="section">
                 <div class="section-header">
@@ -1763,7 +1943,7 @@
                 </ul>
             </section>
 
-                        <!-- ============ RESSOURCES UTILES ============ -->
+            <!-- ============ RESSOURCES UTILES ============ -->
             <section id="ressources" class="section">
                 <div class="section-header">
                     <span class="section-badge">Annexe A</span>
@@ -1771,7 +1951,6 @@
                 </div>
                 <p>Voici une liste de sites et d'outils de référence pour la PS3, classés par thème.</p>
 
-                <!-- ===== FIRMWARES & SYSTÈME ===== -->
                 <h3>💾 Firmwares &amp; Système</h3>
                 <div class="table-wrap table-wrap--compact">
                     <table class="table--compact">
@@ -1782,18 +1961,17 @@
                             <tr>
                                 <td><strong>Darthsternie's Firmware Archive</strong></td>
                                 <td><a href="https://darthsternie.net/ps3-firmwares/" target="_blank" rel="noopener">darthsternie.net/ps3-firmwares</a></td>
-                                <td>Une archive très complète de firmwares PS3 officiels et custom (CFW), allant de la version 3.41 jusqu'aux plus récentes. Indispensable pour retrouver un firmware spécifique ou pour le downgrade.[reference:0]</td>
+                                <td>Une archive très complète de firmwares PS3 officiels et custom (CFW), allant de la version 3.41 jusqu'aux plus récentes. Indispensable pour retrouver un firmware spécifique ou pour le downgrade.</td>
                             </tr>
                             <tr>
                                 <td><strong>Aldostools - PS3 Portal</strong></td>
                                 <td><a href="http://ps3.aldostools.org/" target="_blank" rel="noopener">ps3.aldostools.org</a></td>
-                                <td>Portail principal d'Aldostools regroupant de nombreux outils et bases de données pour la PS3, dont des liens vers des bases de données de jeux, des mises à jour et des utilitaires.[reference:1]</td>
+                                <td>Portail principal d'Aldostools regroupant de nombreux outils et bases de données pour la PS3, dont des liens vers des bases de données de jeux, des mises à jour et des utilitaires.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- ===== BASES DE DONNÉES & IDENTIFIANTS ===== -->
                 <h3>🗄️ Bases de données &amp; Identifiants</h3>
                 <div class="table-wrap table-wrap--compact">
                     <table class="table--compact">
@@ -1804,33 +1982,32 @@
                             <tr>
                                 <td><strong>Aldostools - Title ID Database</strong></td>
                                 <td><a href="http://ps3.aldostools.org/titleid.html" target="_blank" rel="noopener">ps3.aldostools.org/titleid.html</a></td>
-                                <td>Base de données permettant de rechercher le Title ID d'un jeu PS3. Utile pour trouver les mises à jour ou les fichiers de licence correspondants.[reference:2]</td>
+                                <td>Base de données permettant de rechercher le Title ID d'un jeu PS3. Utile pour trouver les mises à jour ou les fichiers de licence correspondants.</td>
                             </tr>
                             <tr>
                                 <td><strong>GameTDB (PS3)</strong></td>
                                 <td><a href="https://www.gametdb.com/PS3" target="_blank" rel="noopener">gametdb.com/PS3</a></td>
-                                <td>Base de données communautaire de jeux PS3. Fournit des informations détaillées (ID, titres, jaquettes) et permet de contribuer à la base.[reference:3]</td>
+                                <td>Base de données communautaire de jeux PS3. Fournit des informations détaillées (ID, titres, jaquettes) et permet de contribuer à la base.</td>
                             </tr>
                             <tr>
                                 <td><strong>PS3-ID (Forums)</strong></td>
                                 <td><a href="https://www.ps3-id.com/forums/playstation-3.192/" target="_blank" rel="noopener">ps3-id.com/forums/playstation-3.192</a></td>
-                                <td>Forum de discussion hispanophone dédié à la PS3, avec des sections sur les CFW, le hardware et les échanges d'identifiants. <em>Note : la réputation du site est mitigée.</em>[reference:4]</td>
+                                <td>Forum de discussion hispanophone dédié à la PS3, avec des sections sur les CFW, le hardware et les échanges d'identifiants. <em>Note : la réputation du site est mitigée.</em></td>
                             </tr>
                             <tr>
                                 <td><strong>SerialStation (PS3)</strong></td>
                                 <td><a href="https://serialstation.com/search/?search=ps3#title-ids" target="_blank" rel="noopener">serialstation.com (PS3)</a></td>
-                                <td>Base de données spécialisée dans les identifiants (Title IDs) de jeux PlayStation. Permet de rechercher par console, région et édition.[reference:5]</td>
+                                <td>Base de données spécialisée dans les identifiants (Title IDs) de jeux PlayStation. Permet de rechercher par console, région et édition.</td>
                             </tr>
                             <tr>
                                 <td><strong>RenaScene (PS3)</strong></td>
                                 <td><a href="https://renascene.com/ps3" target="_blank" rel="noopener">renascene.com/ps3</a></td>
-                                <td>Base de données de "scene releases" pour PSP/PS3/3DS, incluant des jeux PSOne Classics et PS Vita. Souvent utilisée pour vérifier les CRC des ISOs.[reference:6]</td>
+                                <td>Base de données de "scene releases" pour PSP/PS3/3DS, incluant des jeux PSOne Classics et PS Vita. Souvent utilisée pour vérifier les CRC des ISOs.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- ===== TÉLÉCHARGEMENT DE JEUX & MISES À JOUR ===== -->
                 <h3>📥 Téléchargement de jeux &amp; Mises à jour</h3>
                 <div class="table-wrap table-wrap--compact">
                     <table class="table--compact">
@@ -1841,23 +2018,22 @@
                             <tr>
                                 <td><strong>NoPayStation</strong></td>
                                 <td><a href="https://nopaystation.com/" target="_blank" rel="noopener">nopaystation.com</a></td>
-                                <td>Le dépôt le plus complet de liens de téléchargement PKG pour PS3, PSP et PS Vita. Inclut les jeux, DLC, thèmes et mises à jour.[reference:7]</td>
+                                <td>Le dépôt le plus complet de liens de téléchargement PKG pour PS3, PSP et PS Vita. Inclut les jeux, DLC, thèmes et mises à jour.</td>
                             </tr>
                             <tr>
                                 <td><strong>DLPSGame (PS3)</strong></td>
                                 <td><a href="https://dlpsgame.com/category/ps3/" target="_blank" rel="noopener">dlpsgame.com/category/ps3</a></td>
-                                <td>Site proposant des téléchargements de jeux PS3 au format ISO ou dossier JB, souvent avec les DLC et patchs inclus.[reference:8]</td>
+                                <td>Site proposant des téléchargements de jeux PS3 au format ISO ou dossier JB, souvent avec les DLC et patchs inclus.</td>
                             </tr>
                             <tr>
                                 <td><strong>Disdex.io (Servers)</strong></td>
                                 <td><a href="https://disdex.io/servers" target="_blank" rel="noopener">disdex.io/servers</a></td>
-                                <td>Outil permettant de vérifier l'état des serveurs de téléchargement (comme ceux de NoPayStation) pour savoir s'ils sont en ligne ou non.[reference:9]</td>
+                                <td>Outil permettant de vérifier l'état des serveurs de téléchargement (comme ceux de NoPayStation) pour savoir s'ils sont en ligne ou non.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- ===== THÈMES & PERSONNALISATION ===== -->
                 <h3>🎨 Thèmes &amp; Personnalisation</h3>
                 <div class="table-wrap table-wrap--compact">
                     <table class="table--compact">
@@ -1868,12 +2044,12 @@
                             <tr>
                                 <td><strong>BestPS3Themes - Tutoriel</strong></td>
                                 <td><a href="https://bestps3themes.com/create-ps3-themes-tutorial/" target="_blank" rel="noopener">bestps3themes.com/tutoriel</a></td>
-                                <td>Guide pas à pas pour créer ses propres thèmes PS3 à l'aide du "PS3 Theme Builder" et du compilateur p3t.[reference:10]</td>
+                                <td>Guide pas à pas pour créer ses propres thèmes PS3 à l'aide du "PS3 Theme Builder" et du compilateur p3t.</td>
                             </tr>
                             <tr>
                                 <td><strong>Themezer (PS3)</strong></td>
                                 <td><a href="https://themezer.net/" target="_blank" rel="noopener">themezer.net</a></td>
-                                <td>Plateforme communautaire de partage de thèmes pour PS3 (et Switch). Permet de télécharger des thèmes .p3t et d'en uploader.[reference:11]</td>
+                                <td>Plateforme communautaire de partage de thèmes pour PS3 (et Switch). Permet de télécharger des thèmes .p3t et d'en uploader.</td>
                             </tr>
                         </tbody>
                     </table>
