@@ -2,7 +2,7 @@
     "name": "Guide Ultime PS3 — FileZilla, webMAN MOD & Custom",
     "short_name": "Guide PS3",
     "description": "Guide complet pour transférer, organiser et profiter de vos jeux PS3, PS2, PS1, PSP et PSN sur console jailbreakée (CFW Evilnat).",
-    "start_url": "./",
+    "start_url": "./index.html",
     "scope": "./",
     "display": "standalone",
     "orientation": "any",
